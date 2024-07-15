@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -7,136 +7,20 @@
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-            background: url('/files/voertuigoverzichten/background.png') no-repeat center center fixed;
+        @layer base {
+            tbody td {
+                @apply border-t border-gray-600 px-4 py-2;
+            }
+        }
+
+        body {
+            background-image: url('/files/images/background.png');
             background-size: cover;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .slider {
-            width: 100%;
-            height: 500px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slide {
-            width: 100%;
-            height: 500px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-
-        .slide.current {
-            opacity: 1;
-        }
-
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .content h1 {
-            font-size: 5em;
-            margin-bottom: 0.5em;
-        }
-
-        .content p {
-            font-size: 1.5em;
-            margin-bottom: 1em;
-        }
-
-        .content button {
-            font-size: 1.2em;
-            padding: 0.5em 1em;
-            margin: 0.5em;
-            border: none;
-            border-radius: 20px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .current .content h1 {
-            color: #fff;
-            text-shadow: 0 0 10px #f00;
-        }
-
-        .current .content p {
-            color: #ddd;
-            text-shadow: 0 0 5px #000;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .button-container .button {
-            font-size: 1.2em;
-            padding: 0.5em 1em;
-            margin: 0.5em;
-            border: none;
-            border-radius: 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .slider {
-                height: 300px;
-            }
-
-            .slide {
-                height: 300px;
-            }
-
-            .content h1 {
-                font-size: 2.5em;
-            }
-
-            .content p {
-                font-size: 1.2em;
-            }
-
-            .content button {
-                font-size: 1em;
-                padding: 0.5em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .slider {
-                height: 200px;
-            }
-
-            .slide {
-                height: 200px;
-            }
-
-            .content h1 {
-                font-size: 2em;
-            }
-
-            .content p {
-                font-size: 1em;
-            }
-
-            .content button {
-                font-size: 0.8em;
-                padding: 0.4em;
-            }
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            /* Voeg een fallback achtergrondkleur toe voor het geval de afbeelding niet laadt */
+            background-color: #1a202c;
         }
     </style>
 </head>
@@ -149,8 +33,8 @@
         </div>
         <div class="flex flex-wrap justify-end gap-2 mb-4">
             <a href="/files/voertuigoverzichten/indexNL.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen Nederland</a>
-            <a href="/files/voertuigoverzichten/indexBE.html"  class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen België</a>
-            <a href="/index.html"  class="bg-blue-600 rounded px-2 py-1 text-sm">Startpagina</a>
+            <a href="/files/voertuigoverzichten/indexBE.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen België</a>
+            <a href="/index.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Startpagina</a>
             <a href="/files/contact.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Contact</a>
         </div>
         <div class="overflow-x-auto">
@@ -172,7 +56,7 @@
                         <td>4-XFG-13</td>
                         <td>Mooie kleurtjes</td>
                     </tr>
-                    <!-- Andere rijen hier -->
+                    <!-- Vervolg van de andere rijen hier -->
                 </tbody>
             </table>
         </div>
