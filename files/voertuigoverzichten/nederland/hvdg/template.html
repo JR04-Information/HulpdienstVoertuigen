@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <style>
         body {
-            background: url('/files/images/background.png') no-repeat center center fixed;
+            background-image: url('/files/images/background.png');
             background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #1a202c; /* Fallback color */
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,10 +19,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1200px; /* Optional: adjust as needed */
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrondkleur */
         }
 
         .flex {
@@ -109,19 +111,12 @@
 
         @media (max-width: 768px) {
             body {
-                background-size: cover;
-                background-attachment: scroll; /* Veranderd naar scroll voor mobiele weergave */
-            }
-            .container {
-                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrondkleur behouden */
-            }
-            .table-auto {
-                background-color: transparent; /* Achtergrond van de tabel weer transparant maken */
+                background-size: 100% auto;
             }
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
     <div class="container mx-auto p-4">
         <div class="flex justify-between items-center mb-4">
             <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
