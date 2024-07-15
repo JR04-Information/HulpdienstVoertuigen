@@ -6,12 +6,6 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <style>
-        @layer base {
-            tbody td {
-                @apply border-t border-gray-600 px-4 py-2;
-            }
-        }
-
         body {
             background-image: url('/files/images/background.png');
             background-size: cover;
@@ -26,7 +20,7 @@
 
         @media (max-width: 768px) {
             body {
-                background-size: contain;
+                background-size: 100% auto;
             }
         }
 
@@ -38,90 +32,114 @@
 
         .flex {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
 
-        .input-text {
-            background-color: rgba(0, 0, 0, 0.5); /* Aanpassen naar gewenste achtergrondkleur */
-            color: white;
-            border-radius: 4px;
-            padding: 10px;
-            border: none;
+        .justify-between {
+            justify-content: space-between;
         }
 
-        .updated-info {
+        .justify-end {
+            justify-content: flex-end;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
             color: #ccc;
         }
 
-        .button-group {
-            display: flex;
-            gap: 10px;
+        .bg-gray-700 {
+            background-color: #4a5568;
         }
 
-        .button {
+        .bg-gray-800 {
+            background-color: #2d3748;
+        }
+
+        .bg-blue-600 {
             background-color: #3182ce;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            text-decoration: none; /* Optioneel: voorkom onderlijning */
-            display: inline-block; /* Zorgt ervoor dat de breedte zich aanpast aan de inhoud */
         }
 
-        .button:hover {
-            background-color: #2c5282; /* Kleur aanpassen voor hover-effect */
+        .rounded {
+            border-radius: 0.25rem;
         }
 
-        .table {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Aanpassen naar gewenste achtergrondkleur */
-            border-radius: 8px;
-            overflow-x: auto;
-            margin-top: 20px;
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
         }
 
-        .table th,
-        .table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd; /* Aanpassen naar gewenste randkleur */
-            color: white;
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
         }
 
-        .table th {
-            background-color: #2d3748; /* Aanpassen naar gewenste headerkleur */
+        .text-sm {
+            font-size: 0.875rem;
         }
 
-        .footer {
+        .min-w-full {
+            min-width: 100%;
+        }
+
+        .table-auto {
+            width: auto;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-center {
             text-align: center;
-            color: #ccc;
-            font-size: 14px;
-            margin-top: 20px;
         }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        /* Aanvullende stijlen hier */
+
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+    <div class="container mx-auto p-4">
         <div class="flex justify-between items-center mb-4">
-            <input type="text" placeholder="Zoeken" class="input-text">
-            <div class="updated-info">Laatst updated: 08-07-2024, 12:33</div>
+            <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
+            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
         </div>
-        <div class="flex button-group">
-            <a href="/files/voertuigoverzichten/indexNL.html" class="button">Voertuigen Nederland</a>
-            <a href="/files/voertuigoverzichten/indexBE.html" class="button">Voertuigen België</a>
-            <a href="/index.html" class="button">Startpagina</a>
-            <a href="/files/contact.html" class="button">Contact</a>
+        <div class="flex flex-wrap justify-end gap-2 mb-4">
+            <a href="/files/voertuigoverzichten/indexNL.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen Nederland</a>
+            <a href="/files/voertuigoverzichten/indexBE.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen België</a>
+            <a href="/index.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Startpagina</a>
+            <a href="/files/contact.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Contact</a>
         </div>
-        <div class="table">
-            <table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto bg-gray-700 rounded-lg">
                 <thead>
-                    <tr>
-                        <th>Adres</th>
-                        <th>Roepnummer</th>
-                        <th>Type voertuig</th>
-                        <th>Kenteken</th>
-                        <th>Bijzonderheden</th>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">Adres</th>
+                        <th class="px-4 py-2">Roepnummer</th>
+                        <th class="px-4 py-2">Type voertuig</th>
+                        <th class="px-4 py-2">Kenteken</th>
+                        <th class="px-4 py-2">Bijzonderheden</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -137,7 +155,8 @@
             </table>
         </div>
     </div>
-    <footer class="footer">
+    <!-- Footer sectie -->
+    <footer class="text-center text-gray-400 text-sm mt-4">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 </body>
