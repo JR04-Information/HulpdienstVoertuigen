@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrondkleur */
         }
 
         .flex {
@@ -57,10 +56,11 @@
 
         .bg-blue-600 {
             background-color: #3182ce;
+            border-radius: 0; /* Maak de knoppen vierkant */
         }
 
         .rounded {
-            border-radius: 0.25rem;
+            border-radius: 0.25rem; /* Dit is van toepassing op alle afgeronde elementen */
         }
 
         .px-2 {
@@ -83,7 +83,6 @@
 
         .table-auto {
             width: auto;
-            background-color: transparent; /* Achtergrond van de tabel transparant maken */
         }
 
         .rounded-lg {
@@ -110,11 +109,7 @@
 
         @media (max-width: 768px) {
             body {
-                background-size: cover;
-                background-attachment: scroll; /* Veranderd naar scroll voor mobiele weergave */
-            }
-            .container {
-                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparante achtergrondkleur behouden */
+                background-size: 100% auto;
             }
         }
     </style>
