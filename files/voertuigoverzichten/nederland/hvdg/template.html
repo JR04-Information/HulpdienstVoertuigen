@@ -11,21 +11,15 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-color: #1a202c; /* Fallback kleur */
+            background-color: #1a202c; /* Fallback color */
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        @media (max-width: 768px) {
-            body {
-                background-size: 100% auto;
-            }
-        }
-
         .container {
-            max-width: 1200px; /* Optioneel: pas aan naar wens */
+            max-width: 1200px; /* Optional: adjust as needed */
             margin: 0 auto;
             padding: 20px;
         }
@@ -115,8 +109,11 @@
             margin-top: 1rem;
         }
 
-        /* Aanvullende stijlen hier */
-
+        @media (max-width: 768px) {
+            body {
+                background-size: 100% auto;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
