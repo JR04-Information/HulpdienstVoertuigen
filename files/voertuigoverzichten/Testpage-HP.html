@@ -1,0 +1,96 @@
+<html>
+<style>
+body {
+   background-color: #222;
+   color: #fff;
+   font-family: Arial, sans-serif;
+}
+
+.slider {
+   width: 100%;
+   height: 500px;
+   position: relative;
+   overflow: hidden;
+}
+
+.slide {
+   width: 100%;
+   height: 500px;
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0;
+   transition: opacity 1s;
+}
+
+.slide.current {
+   opacity: 1;
+}
+
+.content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+}
+
+.content h1 {
+   font-size: 5em;
+   margin-bottom: 0.5em;
+}
+
+.content p {
+   font-size: 1.5em;
+   margin-bottom: 1em;
+}
+
+.content button {
+   font-size: 1.2em;
+   padding: 0.5em 1em;
+   margin: 0.5em;
+   border: none;
+   border-radius: 20px;
+   background-color: #333;
+   color: #fff;
+}
+
+.current .content h1 {
+   color: #fff;
+   text-shadow: 0 0 10px #f00;
+}
+
+.current .content p {
+   color: #ddd;
+   text-shadow: 0 0 5px #000;
+}
+</style>
+<body>
+   <div class="slider">
+       <div class="slide current">
+           <div class="content">
+               <h1>Hulpdienst Voertuigen</h1>
+               <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
+               <button>Nederland</button>
+               <button>BelgiÃ«</button>
+           </div>
+       </div>
+       <div class="slide">
+           <div class="content">
+               <h1>Hulpdienst Voertuigen</h1>
+               <p>De beste hulpdienst voertuigen informatie voor Nederland en BelgiÃ«</p>
+               <button>Nederland</button>
+               <button>BelgiÃ«</button>
+           </div>
+       </div>
+       <div class="slide">
+           <div class="content">
+               <h1>Hulpdienst Voertuigen</h1>
+               <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
+               <button>Nederland</button>
+               <button>BelgiÃ«</button>
+           </div>
+       </div>
+   </div>
+</body>
+</html>
