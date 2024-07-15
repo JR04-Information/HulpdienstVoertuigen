@@ -93,6 +93,11 @@
 
         /* Responsive styles */
         @media (max-width: 768px) {
+            body {
+                background-size: cover;
+                background-attachment: scroll; /* Veranderd naar scroll voor mobiele weergave */
+            }
+
             .slider {
                 height: 300px;
             }
@@ -140,33 +145,7 @@
     </style>
 </head>
 <body>
-    <div class="slider">
-        <div class="slide current">
-            <div class="content">
-                <h1>Hulpdienst Voertuigen</h1>
-                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h1>Hulpdienst Voertuigen</h1>
-                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h1>Hulpdienst Voertuigen</h1>
-                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="button-container">
-        <a class="button" href="files/voertuigoverzichten">VoertuigOverzichten</a>
-        <a class="button" href="files/contact">Contact</a>
-    </div>
-
-    <div class="container mx-auto p-4">
+   <div class="container mx-auto p-4">
         <div class="flex justify-between items-center mb-4">
             <input type="text" id="searchInput" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
             <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
@@ -205,34 +184,5 @@
     <footer class="text-center text-gray-400 text-sm mt-4">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
-
-    <script>
-        // JavaScript code voor zoekfunctionaliteit
-        const searchInput = document.getElementById('searchInput');
-        const voertuigenTable = document.getElementById('voertuigenTable');
-
-        searchInput.addEventListener('input', function() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-
-            Array.from(voertuigenTable.getElementsByTagName('tr')).forEach(function(row) {
-                const cells = row.getElementsByTagName('td');
-                let found = false;
-
-                Array.from(cells).forEach(function(cell) {
-                    const cellText = cell.textContent.toLowerCase().trim();
-
-                    if (cellText.includes(searchTerm)) {
-                        found = true;
-                    }
-                });
-
-                if (found) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
