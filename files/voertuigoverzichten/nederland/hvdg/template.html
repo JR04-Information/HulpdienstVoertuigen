@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <style>
         @layer base {
             tbody td {
@@ -18,34 +18,106 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-position: center;
-            /* Voeg een fallback achtergrondkleur toe voor het geval de afbeelding niet laadt */
-            background-color: #1a202c;
+            background-color: #1a202c; /* Fallback kleur */
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* Optioneel: pas aan naar wens */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-text {
+            background-color: rgba(0, 0, 0, 0.5); /* Aanpassen naar gewenste achtergrondkleur */
+            color: white;
+            border-radius: 4px;
+            padding: 10px;
+            border: none;
+        }
+
+        .updated-info {
+            color: #ccc;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            text-decoration: none; /* Optioneel: voorkom onderlijning */
+            display: inline-block; /* Zorgt ervoor dat de breedte zich aanpast aan de inhoud */
+        }
+
+        .button:hover {
+            background-color: #2c5282; /* Kleur aanpassen voor hover-effect */
+        }
+
+        .table {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Aanpassen naar gewenste achtergrondkleur */
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Aanpassen naar gewenste randkleur */
+            color: white;
+        }
+
+        .table th {
+            background-color: #2d3748; /* Aanpassen naar gewenste headerkleur */
+        }
+
+        .footer {
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body class="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
-    <div class="container mx-auto p-4">
+    <div class="container">
         <div class="flex justify-between items-center mb-4">
-            <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
-            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
+            <input type="text" placeholder="Zoeken" class="input-text">
+            <div class="updated-info">Laatst updated: 08-07-2024, 12:33</div>
         </div>
-        <div class="flex flex-wrap justify-end gap-2 mb-4">
-            <a href="/files/voertuigoverzichten/indexNL.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen Nederland</a>
-            <a href="/files/voertuigoverzichten/indexBE.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen België</a>
-            <a href="/index.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Startpagina</a>
-            <a href="/files/contact.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Contact</a>
+        <div class="flex button-group">
+            <a href="/files/voertuigoverzichten/indexNL.html" class="button">Voertuigen Nederland</a>
+            <a href="/files/voertuigoverzichten/indexBE.html" class="button">Voertuigen België</a>
+            <a href="/index.html" class="button">Startpagina</a>
+            <a href="/files/contact.html" class="button">Contact</a>
         </div>
-        <div class="overflow-x-auto">
-            <table class="min-w-full table-auto bg-gray-700 rounded-lg">
+        <div class="table">
+            <table>
                 <thead>
-                    <tr class="bg-gray-800">
-                        <th class="px-4 py-2">Adres</th>
-                        <th class="px-4 py-2">Roepnummer</th>
-                        <th class="px-4 py-2">Type voertuig</th>
-                        <th class="px-4 py-2">Kenteken</th>
-                        <th class="px-4 py-2">Bijzonderheden</th>
+                    <tr>
+                        <th>Adres</th>
+                        <th>Roepnummer</th>
+                        <th>Type voertuig</th>
+                        <th>Kenteken</th>
+                        <th>Bijzonderheden</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,8 +133,7 @@
             </table>
         </div>
     </div>
-    <!-- Footer sectie -->
-    <footer class="text-center text-gray-400 text-sm mt-4">
+    <footer class="footer">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 </body>
