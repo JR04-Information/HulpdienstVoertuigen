@@ -61,6 +61,7 @@
             text-decoration: none; /* Verwijder onderstreping */
             color: #fff; /* Tekstkleur wit */
             transition: background-color 0.3s ease; /* Vloeiende overgang voor achtergrondkleur */
+            display: inline-block; /* Voeg dit toe om inline gedrag te behouden */
         }
 
         .bg-blue-600:hover {
@@ -90,9 +91,13 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                background: url('/files/images/background.png') no-repeat center center fixed;
-                background-size: cover;
+            .flex-wrap {
+                flex-wrap: wrap; /* Voeg flex-wrap toe om knoppen op mobiel te laten wrap */
+                justify-content: center; /* Centreer items */
+            }
+
+            .bg-blue-600 {
+                margin-bottom: 0.5rem; /* Voeg ondermarge toe tussen knoppen */
             }
         }
     </style>
