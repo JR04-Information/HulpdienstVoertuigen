@@ -53,10 +53,15 @@
             margin-bottom: 1em;
         }
 
-        .content button {
+        .dropdown-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .dropdown-container select {
             font-size: 1.2em;
-            padding: 0.5em 1em;
-            margin: 0.5em;
+            padding: 0.5em;
             border: none;
             border-radius: 20px;
             background-color: #333;
@@ -71,23 +76,6 @@
         .current .content p {
             color: #ddd;
             text-shadow: 0 0 5px #000;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .button-container .button {
-            font-size: 1.2em;
-            padding: 0.5em 1em;
-            margin: 0.5em;
-            border: none;
-            border-radius: 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
         }
 
         /* Responsive styles */
@@ -107,11 +95,6 @@
             .content p {
                 font-size: 1.2em;
             }
-
-            .content button {
-                font-size: 1em;
-                padding: 0.5em;
-            }
         }
 
         @media (max-width: 480px) {
@@ -129,11 +112,6 @@
 
             .content p {
                 font-size: 1em;
-            }
-
-            .content button {
-                font-size: 0.8em;
-                padding: 0.4em;
             }
         }
     </style>
@@ -160,34 +138,37 @@
         </div>
     </div>
 
-    <div class="button-container">
-        <a class="button" href="nederland/hvdg/groningen">(01)Veiligheidsregio Groningen</a>
-        <a class="button" href="nederland/vrf/friesland">(02)Veiligheidsregio Friesland</a>
-        <a class="button" href="nederland/vrd/drenthe">(03)Veiligheidsregio Drenthe</a>
-        <a class="button" href="nederland/vrij/ijsselland">(04)Veiligheidsregio IJsselland</a>
-        <a class="button" href="nederland/vrt/twente">(05)Veiligheidsregio Twente</a>
-        <a class="button" href="nederland/vnog/nogelderland">(06)Veiligheidsregio Noord en Oost Gelderland</a>
-        <a class="button" href="nederland/vggm/gelderlandm">(07)Veiligheidsregio Gelderland Midden</a>
-        <a class="button" href="nederland/vrgz/gelderlandz">(08)Veiligheidsregio Gelderland Zuid</a>  
-        <a class="button" href="nederland/vru/utrecht">(09)Veiligheidsregio Utrecht</a>
-        <a class="button" href="nederland/vrnhn/nhnoord">(10)Veiligheidsregio Noord-Holland Noord/a>
-        <a class="button" href="nederland/vrzw/zawa">(11)Veiligheidsregio Zaanstreek-Waterland</a>
-        <a class="button" href="nederland/vrk/kennemerland">(12)Veiligheidsregio Kennemerland</a>
-        <a class="button" href="nederland/vraa/amsterdam">(13)Veiligheidsregio Amsterdam-Amstelland</a>
-        <a class="button" href="nederland/vrgv/gooi-vechtstreek">(14)Veiligheidsregio Gooi en Vechtstreek</a>
-        <a class="button" href="nederland/vrh/haaglanden">(15)Veiligheidsregio Haaglanden</a>
-        <a class="button" href="nederland/vrhm/hmidden">(16)Veiligheidsregio Hollands Midden</a>
-        <a class="button" href="nederland/vrr/rotterdam">(17)Veiligheidsregio Rotterdam-Rijnmond</a>
-        <a class="button" href="nederland/vrzhz/zuidhzuid">(18)Veiligheidsregio Zuid-Holland Zuid</a>
-        <a class="button" href="nederland/vrz/zeeland">(19)Veiligheidsregio Zeeland</a>
-        <a class="button" href="nederland/vrmwb/midwestbrabant">(20)Veiligheidsregio Midden en west Brabant</a>
-        <a class="button" href="nederland/vrbn/brabantnoord">(21)Veiligheidsregio Brabant-Noord</a>
-        <a class="button" href="nederland/vrbzo/brabantzo">(22)Veiligheidsregio Brabant Zuid Oost</a>
-        <a class="button" href="nederland/vrln/limburgnoord">(23)Veiligheidsregio Limburg-Noord</a>
-        <a class="button" href="nederland/vrzl/zuidlimburg">(24)Veiligheidsregio Zuid-Limburg</a>
-        <a class="button" href="nederland/vrfl/flevoland">(25)Veiligheidsregio Flevoland</a>
-        <a class="button" href="nederland/ifv/ifveiligheid">(26)Instituut Fysieke Veiligheid</a>
-        <a class="button" href="nederland/def/defensie">(28)Defensie</a>
+    <div class="dropdown-container">
+        <select onchange="location = this.value;">
+            <option value="">Selecteer een veiligheidsregio</option>
+            <option value="nederland/hvdg/groningen">(01) Veiligheidsregio Groningen</option>
+            <option value="nederland/vrf/friesland">(02) Veiligheidsregio Friesland</option>
+            <option value="nederland/vrd/drenthe">(03) Veiligheidsregio Drenthe</option>
+            <option value="nederland/vrij/ijsselland">(04) Veiligheidsregio IJsselland</option>
+            <option value="nederland/vrt/twente">(05) Veiligheidsregio Twente</option>
+            <option value="nederland/vnog/nogelderland">(06) Veiligheidsregio Noord en Oost Gelderland</option>
+            <option value="nederland/vggm/gelderlandm">(07) Veiligheidsregio Gelderland Midden</option>
+            <option value="nederland/vrgz/gelderlandz">(08) Veiligheidsregio Gelderland Zuid</option>  
+            <option value="nederland/vru/utrecht">(09) Veiligheidsregio Utrecht</option>
+            <option value="nederland/vrnhn/nhnoord">(10) Veiligheidsregio Noord-Holland Noord</option>
+            <option value="nederland/vrzw/zawa">(11) Veiligheidsregio Zaanstreek-Waterland</option>
+            <option value="nederland/vrk/kennemerland">(12) Veiligheidsregio Kennemerland</option>
+            <option value="nederland/vraa/amsterdam">(13) Veiligheidsregio Amsterdam-Amstelland</option>
+            <option value="nederland/vrgv/gooi-vechtstreek">(14) Veiligheidsregio Gooi en Vechtstreek</option>
+            <option value="nederland/vrh/haaglanden">(15) Veiligheidsregio Haaglanden</option>
+            <option value="nederland/vrhm/hmidden">(16) Veiligheidsregio Hollands Midden</option>
+            <option value="nederland/vrr/rotterdam">(17) Veiligheidsregio Rotterdam-Rijnmond</option>
+            <option value="nederland/vrzhz/zuidhzuid">(18) Veiligheidsregio Zuid-Holland Zuid</option>
+            <option value="nederland/vrz/zeeland">(19) Veiligheidsregio Zeeland</option>
+            <option value="nederland/vrmwb/midwestbrabant">(20) Veiligheidsregio Midden en west Brabant</option>
+            <option value="nederland/vrbn/brabantnoord">(21) Veiligheidsregio Brabant-Noord</option>
+            <option value="nederland/vrbzo/brabantzo">(22) Veiligheidsregio Brabant Zuid Oost</option>
+            <option value="nederland/vrln/limburgnoord">(23) Veiligheidsregio Limburg-Noord</option>
+            <option value="nederland/vrzl/zuidlimburg">(24) Veiligheidsregio Zuid-Limburg</option>
+            <option value="nederland/vrfl/flevoland">(25) Veiligheidsregio Flevoland</option>
+            <option value="nederland/ifv/ifveiligheid">(26) Instituut Fysieke Veiligheid</option>
+            <option value="nederland/def/defensie">(28) Defensie</option>
+        </select>
     </div>
 </body>
 </html>
