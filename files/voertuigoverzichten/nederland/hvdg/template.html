@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @layer base {
+            tbody td {
+                @apply border-t border-gray-600 px-4 py-2;
+            }
+        }
+
+        body {
+            background: url('/files/images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
+            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
+        </div>
+        <div class="flex flex-wrap justify-end gap-2 mb-4">
+            <a href="/files/voertuigoverzichten/indexNL.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen Nederland</a>
+            <a href="/files/voertuigoverzichten/indexBE.html"  class="bg-blue-600 rounded px-2 py-1 text-sm">Voertuigen België</a>
+            <a href="/index.html"  class="bg-blue-600 rounded px-2 py-1 text-sm">Startpagina</a>
+            <a href="/files/contact.html" class="bg-blue-600 rounded px-2 py-1 text-sm">Contact</a>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto bg-gray-700 rounded-lg">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">Adres</th>
+                        <th class="px-4 py-2">Roepnummer</th>
+                        <th class="px-4 py-2">Type voertuig</th>
+                        <th class="px-4 py-2">Kenteken</th>
+                        <th class="px-4 py-2">Bijzonderheden</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01-10 Leek Tolbertstraat 66</td>
+                        <td>01-1000</td>
+                        <td>Dienstauto - DA 5</td>
+                        <td>4-XFG-13</td>
+                        <td>Mooie kleurtjes</td>
+                    </tr>
+                    <!-- Andere rijen hier -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Footer sectie -->
+    <footer class="text-center text-gray-400 text-sm mt-4">
+        &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+    </footer>
+</body>
+
+</html>
