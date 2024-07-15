@@ -1,96 +1,124 @@
-<html>
-<style>
-body {
-   background-color: #222;
-   color: #fff;
-   font-family: Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hulpdienst Voertuigen</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
 
-.slider {
-   width: 100%;
-   height: 500px;
-   position: relative;
-   overflow: hidden;
-}
+        .slider {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.slide {
-   width: 100%;
-   height: 500px;
-   position: absolute;
-   top: 0;
-   left: 0;
-   opacity: 0;
-   transition: opacity 1s;
-}
+        .slide {
+            width: 100%;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s;
+        }
 
-.slide.current {
-   opacity: 1;
-}
+        .slide.current {
+            opacity: 1;
+        }
 
-.content {
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   text-align: center;
-}
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
 
-.content h1 {
-   font-size: 5em;
-   margin-bottom: 0.5em;
-}
+        .content h1 {
+            font-size: 5em;
+            margin-bottom: 0.5em;
+        }
 
-.content p {
-   font-size: 1.5em;
-   margin-bottom: 1em;
-}
+        .content p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
 
-.content button {
-   font-size: 1.2em;
-   padding: 0.5em 1em;
-   margin: 0.5em;
-   border: none;
-   border-radius: 20px;
-   background-color: #333;
-   color: #fff;
-}
+        .content button {
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            margin: 0.5em;
+            border: none;
+            border-radius: 20px;
+            background-color: #333;
+            color: #fff;
+        }
 
-.current .content h1 {
-   color: #fff;
-   text-shadow: 0 0 10px #f00;
-}
+        .current .content h1 {
+            color: #fff;
+            text-shadow: 0 0 10px #f00;
+        }
 
-.current .content p {
-   color: #ddd;
-   text-shadow: 0 0 5px #000;
-}
-</style>
+        .current .content p {
+            color: #ddd;
+            text-shadow: 0 0 5px #000;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container .button {
+            font-size: 1.2em;
+            padding: 0.5em 1em;
+            margin: 0.5em;
+            border: none;
+            border-radius: 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
-   <div class="slider">
-       <div class="slide current">
-           <div class="content">
-               <h1>Hulpdienst Voertuigen</h1>
-               <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-               <button>Nederland</button>
-               <button>België</button>
-           </div>
-       </div>
-       <div class="slide">
-           <div class="content">
-               <h1>Hulpdienst Voertuigen</h1>
-               <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-               <button>Nederland</button>
-               <button>België</button>
-           </div>
-       </div>
-       <div class="slide">
-           <div class="content">
-               <h1>Hulpdienst Voertuigen</h1>
-               <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
-               <button>Nederland</button>
-               <button>België</button>
-           </div>
-       </div>
-   </div>
+    <div class="slider">
+        <div class="slide current">
+            <div class="content">
+                <h1>Hulpdienst Voertuigen</h1>
+                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
+                <button>Nederland</button>
+                <button>België</button>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h1>Hulpdienst Voertuigen</h1>
+                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
+                <button>Nederland</button>
+                <button>België</button>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h1>Hulpdienst Voertuigen</h1>
+                <p>De beste hulpdienst voertuigen informatie voor Nederland en België</p>
+                <button>Nederland</button>
+                <button>België</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <a class="button" href="files/voertuigoverzichten">VoertuigOverzichten</a>
+        <a class="button" href="files/contact">Contact</a>
+    </div>
 </body>
 </html>
