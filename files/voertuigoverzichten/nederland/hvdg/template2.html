@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('/files/images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .justify-end {
+            justify-content: flex-end;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-700 {
+            background-color: #4a5568;
+        }
+
+        .bg-gray-800 {
+            background-color: #2d3748;
+        }
+
+        .bg-blue-600 {
+            background-color: #3182ce;
+        }
+
+        .rounded-none {
+            border-radius: 0;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .min-w-full {
+            min-width: 100%;
+        }
+
+        .table-auto {
+            width: auto;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: 100% auto;
+            }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer a {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
+            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
+        </div>
+        <div class="flex justify-end gap-2 mb-4">
+            <select class="bg-blue-600 text-white rounded-none px-2 py-1 text-sm">
+                <option>Brandweer</option>
+                <option>Ambulance</option>
+            </select>
+            <select class="bg-blue-600 text-white rounded-none px-2 py-1 text-sm">
+                <option>01-HVGD</option>
+                <option>02-HVGD</option>
+            </select>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto bg-gray-700 rounded-lg">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/kenteken.png" alt="Kenteken" class="icon"> Kenteken
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">Bijzonderheden</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01-10 Leek Tolbertstraat 66</td>
+                        <td>01-1000</td>
+                        <td>Dienstauto - DA 5</td>
+                        <td>4-XFG-13</td>
+                        <td>Mooie kleurtjes</td>
+                    </tr>
+                    <!-- Vervolg van de andere rijen hier -->
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <a href="#">Start</a>
+            <a href="#">FAQ</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</body>
+</html>
