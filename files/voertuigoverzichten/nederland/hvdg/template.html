@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-     <style>
+    <style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             overflow: hidden;
         }
 
@@ -27,7 +27,6 @@
             width: 90%;
             max-width: 1200px;
             overflow: hidden;
-            margin-bottom: 2rem; /* Extra marge onderaan voor de footer */
         }
 
         .flex {
@@ -87,7 +86,6 @@
 
         .table-auto {
             width: auto;
-            margin-top: 1rem; /* Marge boven de tabel */
         }
 
         .rounded-lg {
@@ -118,11 +116,27 @@
             margin-right: 4px;
         }
 
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+            }
+            .container {
+                width: 95%;
+            }
+            .button-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .overflow-x-auto {
+                overflow-x: auto;
+                white-space: nowrap; /* Zorgt ervoor dat tekst niet breekt */
+            }
+        }
+
         .button-container {
             display: flex;
-            justify-content: space-between; /* Aanpassing naar space-between */
+            justify-content: flex-end;
             gap: 0.5rem;
-            margin-bottom: 1rem; /* Marge onder de knoppen */
         }
 
         .button {
@@ -136,13 +150,10 @@
         }
 
         .footer {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .footer a {
@@ -152,14 +163,10 @@
             text-decoration: none;
             color: white;
         }
-     </style>
+    </style>
 </head>
 <body>
     <div class="container mx-auto p-4">
-        <div class="flex justify-between items-center mb-4">
-            <input type="text" id="searchInput" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
-            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
-        </div>
         <div class="button-container mb-4">
             <a href="/index.html" class="button">Start</a>
             <select class="button" onchange="location = this.value;">
