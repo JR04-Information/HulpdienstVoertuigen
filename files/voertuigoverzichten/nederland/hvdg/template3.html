@@ -13,12 +13,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            height: 100vh; /* Voeg dit toe om de achtergrond over de hele viewport te laten lopen */
+            overflow-x: hidden; /* Verberg de horizontale scrollbalk */
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            min-height: 100vh; /* Zorg ervoor dat de container minstens zo hoog is als de viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Verdeel de ruimte tussen de inhoud en de footer */
         }
 
         .flex {
