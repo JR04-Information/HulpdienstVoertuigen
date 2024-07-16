@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <style>
@@ -16,8 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
         .container {
@@ -127,10 +126,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .overflow-x-auto {
-                overflow-x: auto;
-                white-space: nowrap; /* Zorgt ervoor dat tekst niet breekt */
-            }
         }
 
         .button-container {
@@ -154,6 +149,8 @@
             justify-content: center;
             gap: 1rem;
             margin-top: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
         }
 
         .footer a {
@@ -162,14 +159,6 @@
             border-radius: 1rem;
             text-decoration: none;
             color: white;
-        }
-
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 10px 20px;
         }
     </style>
 </head>
@@ -184,34 +173,10 @@
             <select class="button" onchange="location = this.value;">
                 <option value="">Selecteer een veiligheidsregio</option>
                 <option value="/files/voertuigoverzichten/nederland/hvdg/groningen">(01) Veiligheidsregio Groningen</option>
-                <option value="/files/voertuigoverzichten/nederland/vrf/friesland">(02) Veiligheidsregio Friesland</option>
-                <option value="/files/voertuigoverzichten/nederland/vrd/drenthe">(03) Veiligheidsregio Drenthe</option>
-                <option value="/files/voertuigoverzichten/nederland/vrij/ijsselland">(04) Veiligheidsregio IJsselland</option>
-                <option value="/files/voertuigoverzichten/nederland/vrt/twente">(05) Veiligheidsregio Twente</option>
-                <option value="/files/voertuigoverzichten/nederland/vnog/nogelderland">(06) Veiligheidsregio Noord en Oost Gelderland</option>
-                <option value="/files/voertuigoverzichten/nederland/vggm/gelderlandm">(07) Veiligheidsregio Gelderland Midden</option>
-                <option value="/files/voertuigoverzichten/nederland/vrgz/gelderlandz">(08) Veiligheidsregio Gelderland Zuid</option>  
-                <option value="/files/voertuigoverzichten/nederland/vru/utrecht">(09) Veiligheidsregio Utrecht</option>
-                <option value="/files/voertuigoverzichten/nederland/vrnhn/nhnoord">(10) Veiligheidsregio Noord-Holland Noord</option>
-                <option value="/files/voertuigoverzichten/nederland/vrzw/zawa">(11) Veiligheidsregio Zaanstreek-Waterland</option>
-                <option value="/files/voertuigoverzichten/nederland/vrk/kennemerland">(12) Veiligheidsregio Kennemerland</option>
-                <option value="/files/voertuigoverzichten/nederland/vraa/amsterdam">(13) Veiligheidsregio Amsterdam-Amstelland</option>
-                <option value="/files/voertuigoverzichten/nederland/vrgv/gooi-vechtstreek">(14) Veiligheidsregio Gooi en Vechtstreek</option>
-                <option value="/files/voertuigoverzichten/nederland/vrh/haaglanden">(15) Veiligheidsregio Haaglanden</option>
-                <option value="/files/voertuigoverzichten/nederland/vrhm/hmidden">(16) Veiligheidsregio Hollands Midden</option>
-                <option value="/files/voertuigoverzichten/nederland/vrr/rotterdam">(17) Veiligheidsregio Rotterdam-Rijnmond</option>
-                <option value="/files/voertuigoverzichten/nederland/vrzhz/zuidhzuid">(18) Veiligheidsregio Zuid-Holland Zuid</option>
-                <option value="/files/voertuigoverzichten/nederland/vrz/zeeland">(19) Veiligheidsregio Zeeland</option>
-                <option value="/files/voertuigoverzichten/nederland/vrmwb/midwestbrabant">(20) Veiligheidsregio Midden en west Brabant</option>
-                <option value="/files/voertuigoverzichten/nederland/vrbn/brabantnoord">(21) Veiligheidsregio Brabant-Noord</option>
-                <option value="/files/voertuigoverzichten/nederland/vrbzo/brabantzo">(22) Veiligheidsregio Brabant Zuid Oost</option>
-                <option value="/files/voertuigoverzichten/nederland/vrln/limburgnoord">(23) Veiligheidsregio Limburg-Noord</option>
-                <option value="/files/voertuigoverzichten/nederland/vrzl/zuidlimburg">(24) Veiligheidsregio Zuid-Limburg</option>
-                <option value="/files/voertuigoverzichten/nederland/vrfl/flevoland">(25) Veiligheidsregio Flevoland</option>
+                <!-- Veiligheidsregio's 02 tot 28 zijn hier overgeslagen -->
                 <option value="/files/voertuigoverzichten/nederland/ifv/ifveiligheid">(26) Instituut Fysieke Veiligheid</option>
                 <option value="/files/voertuigoverzichten/nederland/def/defensie">(28) Defensie</option>
             </select>
-            <a href="/files/contact" class="button">Contact</a>
         </div>
         <div class="overflow-x-auto">
             <table id="dataTable" class="min-w-full table-auto bg-gray-700 rounded-lg">
@@ -253,7 +218,8 @@
             </table>
         </div>
     </div>
-    <footer class="footer text-gray-400 text-sm">
+    <!-- Footer sectie -->
+    <footer class="text-center text-gray-400 text-sm mt-4">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
     <script>
