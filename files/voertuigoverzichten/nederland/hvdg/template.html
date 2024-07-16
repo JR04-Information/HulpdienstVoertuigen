@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             overflow: hidden;
         }
 
@@ -27,6 +27,7 @@
             width: 90%;
             max-width: 1200px;
             overflow: hidden;
+            margin-bottom: 2rem; /* Extra marge onderaan voor de footer */
         }
 
         .flex {
@@ -86,6 +87,7 @@
 
         .table-auto {
             width: auto;
+            margin-top: 1rem; /* Marge boven de tabel */
         }
 
         .rounded-lg {
@@ -116,23 +118,11 @@
             margin-right: 4px;
         }
 
-        @media (max-width: 768px) {
-            body {
-                background-size: cover;
-            }
-            .container {
-                width: 95%;
-            }
-            .button-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
         .button-container {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between; /* Aanpassing naar space-between */
             gap: 0.5rem;
+            margin-bottom: 1rem; /* Marge onder de knoppen */
         }
 
         .button {
@@ -146,10 +136,13 @@
         }
 
         .footer {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
         }
 
         .footer a {
@@ -159,7 +152,7 @@
             text-decoration: none;
             color: white;
         }
-    </style>
+     </style>
 </head>
 <body>
     <div class="container mx-auto p-4">
