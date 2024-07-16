@@ -14,8 +14,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             min-height: 100vh;
         }
 
@@ -26,6 +25,7 @@
             width: 90%;
             max-width: 1200px;
             overflow: hidden;
+            flex: 1; /* Laat de container groeien om de beschikbare ruimte te vullen */
         }
 
         .flex {
@@ -144,21 +144,12 @@
             text-align: center;
         }
 
-        .footer {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
+        footer {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
-        }
-
-        .footer a {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
-            text-decoration: none;
+            text-align: center;
             color: white;
+            margin-top: auto; /* Plaats de footer altijd onderaan */
         }
     </style>
 </head>
@@ -173,9 +164,6 @@
             <select class="button" onchange="location = this.value;">
                 <option value="">Selecteer een veiligheidsregio</option>
                 <option value="/files/voertuigoverzichten/nederland/hvdg/groningen">(01) Veiligheidsregio Groningen</option>
-                <!-- Veiligheidsregio's 02 tot 28 zijn hier overgeslagen -->
-                <option value="/files/voertuigoverzichten/nederland/ifv/ifveiligheid">(26) Instituut Fysieke Veiligheid</option>
-                <option value="/files/voertuigoverzichten/nederland/def/defensie">(28) Defensie</option>
             </select>
         </div>
         <div class="overflow-x-auto">
@@ -219,7 +207,7 @@
         </div>
     </div>
     <!-- Footer sectie -->
-    <footer class="text-center text-gray-400 text-sm mt-4">
+    <footer>
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
     <script>
