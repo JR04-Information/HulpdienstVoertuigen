@@ -13,11 +13,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
 
         .container {
@@ -26,7 +21,7 @@
             padding: 20px;
             width: 90%;
             max-width: 1200px;
-            min-height: 100vh; /* Aangepast naar min-height */
+            margin: auto; /* Center de container op het scherm */
             display: flex;
             flex-direction: column;
         }
@@ -121,13 +116,10 @@
         @media (max-width: 768px) {
             body {
                 background-size: cover;
-                height: auto; /* Aangepast naar auto */
                 padding: 20px;
             }
             .container {
                 width: 100%;
-                min-height: 100vh; /* Aangepast naar min-height */
-                overflow: auto;
             }
             .button-container {
                 flex-direction: column;
@@ -183,7 +175,7 @@
     <div class="container mx-auto p-4">
         <div class="flex justify-between items-center mb-4">
             <input type="text" id="searchInput" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
-            <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
+            <div class="text-gray-400">Laatst updated: 08-07-2024</div>
         </div>
         <div class="button-container mb-4">
             <a href="#" class="button">Start</a>
@@ -220,6 +212,7 @@
                 <option value="/files/voertuigoverzichten/nederland/vrfl/flevoland">(25) Veiligheidsregio Flevoland</option>
                 <option value="/files/voertuigoverzichten/nederland/ifv/ifveiligheid">(26) Instituut Fysieke Veiligheid</option>
                 <option value="/files/voertuigoverzichten/nederland/def/defensie">(28) Defensie</option>
+                <option value="02-VRF.html">02-VRF</option>
             </select>
             <a href="#" class="button">Contact</a>
         </div>
