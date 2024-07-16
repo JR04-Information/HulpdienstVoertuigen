@@ -13,12 +13,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .flex {
@@ -117,8 +123,33 @@
         }
 
         .overflow-x-auto {
-            max-height: 1400px; /* Set max-height for scrolling */
-            overflow-y: 800px; /* Enable vertical scrolling */
+            max-height: calc(100vh - 200px); /* Verhoogde maximale hoogte */
+            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
+            flex: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Plaats footer onderaan de viewport */
         }
 
         @media (max-width: 768px) {
@@ -183,7 +214,7 @@
             </div>
         </div>
         <div class="overflow-x-auto">
-            <table id="dataTable" class="min-w-full table-auto bg-gray-700 rounded-lg">
+            <table id="dataTable">
                 <thead>
                     <tr class="bg-gray-800">
                         <th class="px-4 py-2">
@@ -200,10 +231,6 @@
                             <span class="flex items-center justify-center">
                                 <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
                             </span>
-                         <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
@@ -215,7 +242,6 @@
                                 <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
                             </span>
                         </th>
-                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -2975,7 +3001,7 @@
         </div>
     </div>
     <!-- Footer sectie -->
-    <footer class="text-center text-gray-400 text-sm mt-4">
+    <footer>
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -2986,19 +3012,19 @@
             var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
             
-            for (var i = 1; i < rows.length; i++) { // Start vanaf index 1 om de header te behouden
+            for (var i = 1; i < rows.length; i++) {
                 var cells = rows[i].getElementsByTagName('td');
-                var found = false;
-                
+                var rowContainsInput = false;
+
                 for (var j = 0; j < cells.length; j++) {
-                    var textValue = cells[j].textContent || cells[j].innerText;
-                    if (textValue.toUpperCase().indexOf(input) > -1) {
-                        found = true;
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
                         break;
                     }
                 }
-                
-                if (found) {
+
+                if (rowContainsInput) {
                     rows[i].style.display = '';
                 } else {
                     rows[i].style.display = 'none';
