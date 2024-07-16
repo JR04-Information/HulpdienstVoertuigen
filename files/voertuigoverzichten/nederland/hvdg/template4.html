@@ -30,10 +30,6 @@
             justify-content: space-between;
         }
 
-        .justify-end {
-            justify-content: flex-end;
-        }
-
         .gap-2 {
             gap: 0.5rem;
         }
@@ -46,20 +42,12 @@
             color: #ccc;
         }
 
-        .bg-gray-700 {
-            background-color: #4a5568;
-        }
-
-        .bg-gray-800 {
-            background-color: #2d3748;
-        }
-
         .bg-gray-600 {
             background-color: #333;
         }
 
         .rounded-lg {
-            border-radius: 0.5rem; /* Dit is van toepassing op andere afgeronde elementen */
+            border-radius: 0.5rem;
         }
 
         .px-2 {
@@ -83,6 +71,7 @@
         .mt-4 {
             margin-top: 1rem;
         }
+
         img.icon {
             width: 16px;
             height: 16px;
@@ -90,28 +79,40 @@
         }
 
         .dropdown-container {
-            margin-right: 0.5rem; /* Rechtermarge toegevoegd */
+            margin-right: 0.5rem;
         }
 
         .dropdown-container select {
-            font-size: 1em;  /* Iets kleiner font-size */
-            padding: 0.3em 0.8em;  /* Kleinere padding */
+            font-size: 1em;
+            padding: 0.3em 0.8em;
             border: none;
-            border-radius: 10px;  /* Minder afgeronde hoeken */
+            border-radius: 10px;
             background-color: #333;
             color: #fff;
         }
 
-        
+        /* Aanpassingen voor de knoppen om stijl te delen met dropdown */
+        .nav-link {
+            background-color: #333;
+            color: #fff;
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-right: 0.5rem; /* Rechtermarge toegevoegd voor ruimte */
+        }
+
+        .nav-link:hover {
+            background-color: #4a5568; /* Kleurverandering bij hover, zelfde als dropdown */
+        }
 
         @media (max-width: 768px) {
             .flex-wrap {
-                flex-wrap: wrap; /* Voeg flex-wrap toe om knoppen op mobiel te laten wrap */
-                justify-content: center; /* Centreer items */
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .bg-gray-600 {
-                margin-bottom: 0.5rem; /* voeg ondermarge toe tussen knoppen */
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -132,8 +133,8 @@
                 </div>
 
                 <!-- Andere knoppen -->
-                <a href="/index.html" class="bg-gray-600 px-2 py-1 text-sm rounded-lg">Startpagina</a>
-                <a href="/files/contact.html" class="bg-gray-600 px-2 py-1 text-sm rounded-lg">Contact</a>
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
             </div>
         </div>
         <div class="overflow-x-auto">
