@@ -93,33 +93,16 @@
             margin-right: 0.5rem; /* Rechtermarge toegevoegd */
         }
 
-        .dropdown-container select,
-        .bg-gray-600 {
-            background-color: #718096;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
+        .dropdown-container select {
+            font-size: 1em;  /* Iets kleiner font-size */
+            padding: 0.3em 0.8em;  /* Kleinere padding */
             border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none; /* Verwijder onderstreping */
-            display: inline-block; /* Voeg dit toe om inline gedrag te behouden */
-        }
-
-        .dropdown-container select:hover,
-        .bg-gray-600:hover {
-            background-color: #4a5568; /* Donkerder grijs bij hover */
-        }
-
-        .dropdown-container select:focus,
-        .bg-gray-600:focus {
-            outline: none;
-        }
-
-        .dropdown-container option {
-            background-color: #2d3748;
+            border-radius: 10px;  /* Minder afgeronde hoeken */
+            background-color: #333;
             color: #fff;
         }
+
+        
 
         @media (max-width: 768px) {
             .flex-wrap {
@@ -128,7 +111,7 @@
             }
 
             .bg-gray-600 {
-                margin-bottom: 0.5rem; /* Voeg ondermarge toe tussen knoppen */
+                margin-bottom: 0.5rem; /* voeg ondermarge toe tussen knoppen */
             }
         }
     </style>
