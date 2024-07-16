@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
+     <style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -13,12 +13,20 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
             padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            overflow: hidden;
         }
 
         .flex {
@@ -54,8 +62,30 @@
             background-color: #2d3748;
         }
 
-        .bg-gray-600 {
-            background-color: #718096;
+        .rounded-none {
+            border-radius: 0;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .min-w-full {
+            min-width: 100%;
+        }
+
+        .table-auto {
+            width: auto;
         }
 
         .rounded-lg {
@@ -80,30 +110,6 @@
             margin-top: 1rem;
         }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background-color: #2d3748;
-            border-radius: 0.5rem;
-            z-index: 10;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.5rem 1rem;
-            color: #fff;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #4a5568;
-        }
-
-        .dropdown-menu.active {
-            display: block;
-        }
-
         img.icon {
             width: 16px;
             height: 16px;
@@ -111,14 +117,47 @@
         }
 
         @media (max-width: 768px) {
-            .flex-wrap {
-                flex-wrap: wrap;
-                justify-content: center;
+            body {
+                background-size: cover;
             }
+            .container {
+                width: 95%;
+            }
+            .button-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
 
-            .bg-gray-600 {
-                margin-bottom: 0.5rem;
-            }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .button {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: white;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer a {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: white;
         }
     </style>
 </head>
