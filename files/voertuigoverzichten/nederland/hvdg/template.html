@@ -116,6 +116,11 @@
             color: white;
         }
 
+        .overflow-x-auto {
+            max-height: 500px; /* Set max-height for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
         @media (max-width: 768px) {
             .flex-wrap {
                 flex-wrap: wrap;
@@ -152,7 +157,7 @@
             </div>
         </div>
         <div class="overflow-x-auto">
-            <table class="min-w-full table-auto bg-gray-700 rounded-lg">
+            <table id="dataTable" class="min-w-full table-auto bg-gray-700 rounded-lg">
                 <thead>
                     <tr class="bg-gray-800">
                         <th class="px-4 py-2">
@@ -191,6 +196,41 @@
                         <td></td>
                     </tr>
                     <!-- Voeg hier meer rijen met data toe -->
+                    <tr>
+                        <td>01-11 Groningen, Voorstraat 10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-12 Amsterdam, Keizersgracht 123</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-13 Utrecht, Domplein 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-14 Den Haag, Binnenhof 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-15 Rotterdam, Coolsingel 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -204,10 +244,10 @@
     <script>
         function searchTable() {
             var input = document.getElementById('searchInput').value.toUpperCase();
-            var table = document.querySelector('table');
+            var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
             
-            for (var i = 0; i < rows.length; i++) {
+            for (var i = 1; i < rows.length; i++) { // Start vanaf index 1 om de header te behouden
                 var cells = rows[i].getElementsByTagName('td');
                 var found = false;
                 
