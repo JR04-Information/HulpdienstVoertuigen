@@ -68,6 +68,54 @@
             background-color: #2d3748; /* Donkerder grijs bij hover */
         }
 
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown button {
+            background-color: #4a5568; /* Grijze achtergrond */
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            border-radius: 0.25rem; /* Afgeronde hoeken */
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown button:hover {
+            background-color: #2d3748; /* Donkerder grijs bij hover */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #2d3748; /* Donkere achtergrond voor het dropdownmenu */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0;
+            top: 100%;
+            border-radius: 0.25rem;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4a5568; /* Donkergrijze achtergrond bij hover */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .rounded-lg {
             border-radius: 0.5rem; /* Dit is van toepassing op andere afgeronde elementen */
         }
@@ -115,11 +163,11 @@
         <div class="flex flex-wrap justify-end gap-2 mb-4">
             <a href="/files/voertuigoverzichten/indexNL.html" class="bg-gray-600 px-2 py-1 text-sm">Voertuigen Nederland</a>
             <a href="/files/voertuigoverzichten/indexBE.html" class="bg-gray-600 px-2 py-1 text-sm">Voertuigen België</a>
-            <div class="relative">
+            <div class="dropdown">
                 <button class="bg-gray-600 px-2 py-1 text-sm">Meer <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1 -mt-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v9a1 1 0 11-2 0V4a1 1 0 011-1zM4 8a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" /></svg></button>
-                <div class="absolute right-0 mt-2 w-40 bg-gray-800 rounded-lg shadow-lg hidden">
-                    <a href="/index.html" class="block px-4 py-2 text-sm text-white">Startpagina</a>
-                    <a href="/files/contact.html" class="block px-4 py-2 text-sm text-white">Contact</a>
+                <div class="dropdown-content">
+                    <a href="/index.html" class="text-sm">Startpagina</a>
+                    <a href="/files/contact.html" class="text-sm">Contact</a>
                 </div>
             </div>
         </div>
@@ -170,5 +218,16 @@
     <footer class="text-center text-gray-400 text-sm mt-4">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
+
+    <script>
+        // JavaScript om dropdown te tonen bij hover
+        document.querySelector('.dropdown').addEventListener('mouseover', function() {
+            document.querySelector('.dropdown-content').style.display = 'block';
+        });
+
+        document.querySelector('.dropdown').addEventListener('mouseout', function() {
+            document.querySelector('.dropdown-content').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
