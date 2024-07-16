@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brandweer Groningen</title>
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <title>Dropdown met veel opties</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
@@ -21,86 +21,41 @@
             padding: 20px;
         }
 
-        .flex {
-            display: flex;
-            align-items: center;
-        }
-
-        .justify-between {
-            justify-content: space-between;
-        }
-
-        .justify-end {
-            justify-content: flex-end;
-        }
-
-        .gap-2 {
-            gap: 0.5rem;
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .text-gray-400 {
-            color: #ccc;
-        }
-
-        .bg-gray-700 {
-            background-color: #4a5568;
-        }
-
-        .bg-gray-800 {
-            background-color: #2d3748;
-        }
-
-        .bg-gray-600 {
-            background-color: #4a5568; /* Grijze achtergrond */
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: #fff;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            border-radius: 0.25rem; /* Afgeronde hoeken */
-        }
-
-        .bg-gray-600:hover {
-            background-color: #2d3748; /* Donkerder grijs bij hover */
-        }
-
         .dropdown {
             position: relative;
+            display: inline-block;
         }
 
         .dropdown button {
-            background-color: #4a5568; /* Grijze achtergrond */
+            background-color: #4a5568;
+            color: white;
             padding: 0.5rem 1rem;
-            text-decoration: none;
-            color: #fff;
-            transition: background-color 0.3s ease;
-            display: inline-block;
             border: none;
             cursor: pointer;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
         }
 
         .dropdown button:hover {
-            background-color: #2d3748; /* Donkerder grijs bij hover */
+            background-color: #2d3748;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #2d3748; /* Donkere achtergrond voor het dropdownmenu */
+            background-color: #2d3748;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            right: 0;
-            top: 100%;
             border-radius: 0.25rem;
         }
 
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .dropdown-content a {
-            color: #fff;
+            color: white;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -108,49 +63,7 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #4a5568; /* Donkergrijze achtergrond bij hover */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem; /* Dit is van toepassing op andere afgeronde elementen */
-        }
-
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .py-2 {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-4 {
-            margin-top: 1rem;
-        }
-        img.icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .flex-wrap {
-                flex-wrap: wrap; /* Voeg flex-wrap toe om knoppen op mobiel te laten wrap */
-                justify-content: center; /* Centreer items */
-            }
-
-            .bg-gray-600 {
-                margin-bottom: 0.5rem; /* Voeg ondermarge toe tussen knoppen */
-            }
+            background-color: #4a5568;
         }
     </style>
 </head>
@@ -159,44 +72,42 @@
         <div class="flex justify-between items-center mb-4">
             <div class="text-gray-400">Laatste update: 15-07-2024</div>
         </div>
-        <div class="flex flex-wrap justify-end gap-2 mb-4">
-            <a href="/files/voertuigoverzichten/indexNL.html" class="bg-gray-600 px-2 py-1 text-sm">Voertuigen Nederland</a>
-            <a href="/files/voertuigoverzichten/indexBE.html" class="bg-gray-600 px-2 py-1 text-sm">Voertuigen België</a>
-            <div class="dropdown">
-                <button class="bg-gray-600 px-2 py-1 text-sm">Meer <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1 -mt-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v9a1 1 0 11-2 0V4a1 1 0 011-1zM4 8a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1z" clip-rule="evenodd" /></svg></button>
-                <div class="dropdown-content">
-                    <a href="/index.html" class="text-sm">Startpagina</a>
-                    <a href="/files/contact.html" class="text-sm">Contact</a>
-                </div>
+        <div class="dropdown">
+            <button class="bg-gray-600 px-4 py-2 text-sm rounded-md">Meer opties</button>
+            <div class="dropdown-content">
+                <a href="#">Optie 1</a>
+                <a href="#">Optie 2</a>
+                <!-- Voeg hier alle 28 opties toe -->
+                <a href="#">Optie 28</a>
             </div>
         </div>
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto mt-4">
             <table class="min-w-full table-auto bg-gray-700 rounded-lg">
                 <thead>
                     <tr class="bg-gray-800">
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
+                                Adres
                             </span>
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
-                                <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
+                                Roepnummer
                             </span>
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                                Type voertuig
                             </span>
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
-                                <img src="/files/images/kenteken.png" alt="Kenteken" class="icon"> Kenteken
+                                Kenteken
                             </span>
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
-                                <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
+                                Bijzonderheden
                             </span>
                         </th>
                     </tr>
@@ -204,29 +115,15 @@
                 <tbody>
                     <tr>
                         <td>01-10 Leek, Tolberterstraat 66</td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
+                    <!-- Voeg meer rijen toe zoals nodig -->
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- Footer sectie -->
-    <footer class="text-center text-gray-400 text-sm mt-4">
-        &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
-    </footer>
-
-    <script>
-        // JavaScript om dropdown te tonen bij hover
-        document.querySelector('.dropdown').addEventListener('mouseover', function() {
-            document.querySelector('.dropdown-content').style.display = 'block';
-        });
-
-        document.querySelector('.dropdown').addEventListener('mouseout', function() {
-            document.querySelector('.dropdown-content').style.display = 'none';
-        });
-    </script>
 </body>
 </html>
