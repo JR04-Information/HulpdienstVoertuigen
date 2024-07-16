@@ -13,12 +13,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .flex {
@@ -117,8 +123,38 @@
         }
 
         .overflow-x-auto {
-            max-height: 1400px; /* Set max-height for scrolling */
-            overflow-y: 800px; /* Enable vertical scrolling */
+            max-height: calc(100vh - 200px); /* Verhoogde maximale hoogte */
+            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
+            flex: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px; /* Verhoogde ruimte boven de footer */
         }
 
         @media (max-width: 768px) {
@@ -143,32 +179,6 @@
                     <select onchange="if (this.value) window.location.href=this.value;">
                         <option value="">Selecteer een veiligheidsregio</option>
                         <option value="/files/voertuigoverzichten/nederland/hvdg/groningen">(01) Veiligheidsregio Groningen</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrf/friesland">(02) Veiligheidsregio Friesland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrd/drenthe">(03) Veiligheidsregio Drenthe</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrij/ijsselland">(04) Veiligheidsregio IJsselland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrt/twente">(05) Veiligheidsregio Twente</option>
-                        <option value="/files/voertuigoverzichten/nederland/vnog/nogelderland">(06) Veiligheidsregio Noord en Oost Gelderland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vggm/gelderlandm">(07) Veiligheidsregio Gelderland Midden</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrgz/gelderlandz">(08) Veiligheidsregio Gelderland Zuid</option>  
-                        <option value="/files/voertuigoverzichten/nederland/vru/utrecht">(09) Veiligheidsregio Utrecht</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrnhn/nhnoord">(10) Veiligheidsregio Noord-Holland Noord</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrzw/zawa">(11) Veiligheidsregio Zaanstreek-Waterland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrk/kennemerland">(12) Veiligheidsregio Kennemerland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vraa/amsterdam">(13) Veiligheidsregio Amsterdam-Amstelland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrgv/gooi-vechtstreek">(14) Veiligheidsregio Gooi en Vechtstreek</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrh/haaglanden">(15) Veiligheidsregio Haaglanden</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrhm/hmidden">(16) Veiligheidsregio Hollands Midden</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrr/rotterdam">(17) Veiligheidsregio Rotterdam-Rijnmond</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrzhz/zuidhzuid">(18) Veiligheidsregio Zuid-Holland Zuid</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrz/zeeland">(19) Veiligheidsregio Zeeland</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrmwb/midwestbrabant">(20) Veiligheidsregio Midden en west Brabant</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrbn/brabantnoord">(21) Veiligheidsregio Brabant-Noord</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrbzo/brabantzo">(22) Veiligheidsregio Brabant Zuid Oost</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrln/limburgnoord">(23) Veiligheidsregio Limburg-Noord</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrzl/zuidlimburg">(24) Veiligheidsregio Zuid-Limburg</option>
-                        <option value="/files/voertuigoverzichten/nederland/vrfl/flevoland">(25) Veiligheidsregio Flevoland</option>
-                        <option value="/files/voertuigoverzichten/nederland/ifv/ifveiligheid">(26) Instituut Fysieke Veiligheid</option>
-                        <option value="/files/voertuigoverzichten/nederland/def/defensie">(28) Defensie</option>
                     </select>
                 </div>
 
@@ -183,39 +193,14 @@
             </div>
         </div>
         <div class="overflow-x-auto">
-            <table id="dataTable" class="min-w-full table-auto bg-gray-700 rounded-lg">
+            <table id="dataTable">
                 <thead>
-                    <tr class="bg-gray-800">
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/kenteken.png" alt="Kenteken" class="icon"> Kenteken
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
-                            </span>
-                        </th>
+                    <tr>
+                        <th>Adres</th>
+                        <th>Roepnummer</th>
+                        <th>Type voertuig</th>
+                        <th>Kenteken</th>
+                        <th>Bijzonderheden</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -227,13 +212,47 @@
                         <td></td>
                     </tr>
                     <!-- Voeg hier meer rijen met data toe -->
-                    
+                    <tr>
+                        <td>01-11 Groningen, Voorstraat 10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-12 Amsterdam, Keizersgracht 123</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-13 Utrecht, Domplein 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-14 Den Haag, Binnenhof 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>01-15 Rotterdam, Coolsingel 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <!-- Footer sectie -->
-    <footer class="text-center text-gray-400 text-sm mt-4">
+    <footer>
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -244,19 +263,19 @@
             var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
             
-            for (var i = 1; i < rows.length; i++) { // Start vanaf index 1 om de header te behouden
+            for (var i = 1; i < rows.length; i++) {
                 var cells = rows[i].getElementsByTagName('td');
-                var found = false;
-                
+                var rowContainsInput = false;
+
                 for (var j = 0; j < cells.length; j++) {
-                    var textValue = cells[j].textContent || cells[j].innerText;
-                    if (textValue.toUpperCase().indexOf(input) > -1) {
-                        found = true;
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
                         break;
                     }
                 }
-                
-                if (found) {
+
+                if (rowContainsInput) {
                     rows[i].style.display = '';
                 } else {
                     rows[i].style.display = 'none';
