@@ -62,10 +62,6 @@
             background-color: #2d3748;
         }
 
-        .bg-blue-600 {
-            background-color: #3182ce;
-        }
-
         .rounded-none {
             border-radius: 0;
         }
@@ -129,6 +125,22 @@
             }
         }
 
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .button {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: white;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
         .footer {
             display: flex;
             justify-content: center;
@@ -151,12 +163,12 @@
             <input type="text" placeholder="Zoeken" class="bg-gray-700 text-white rounded px-4 py-2">
             <div class="text-gray-400">Laatst updated: 08-07-2024, 12:33</div>
         </div>
-        <div class="flex justify-end gap-2 mb-4">
-            <select class="bg-blue-600 text-white rounded-none px-2 py-1 text-sm">
+        <div class="button-container mb-4">
+            <select class="button">
                 <option>Brandweer</option>
                 <option>Ambulance</option>
             </select>
-            <select class="bg-blue-600 text-white rounded-none px-2 py-1 text-sm">
+            <select class="button">
                 <option>01-HVGD</option>
                 <option>02-HVGD</option>
             </select>
