@@ -91,18 +91,42 @@
             color: #fff;
         }
 
-        /* Aanpassingen voor de knoppen om stijl te delen met dropdown */
         .nav-link {
             background-color: #333;
             color: #fff;
             padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-right: 0.5rem; /* Rechtermarge toegevoegd voor ruimte */
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
-            background-color: #4a5568; /* Kleurverandering bij hover, zelfde als dropdown */
+            background-color: #4a5568;
+        }
+
+        .search-container {
+            margin-right: 0.5rem;
+        }
+
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        .search-container button {
+            background-color: #333;
+            color: white;
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background-color: #4a5568;
         }
 
         @media (max-width: 768px) {
@@ -130,6 +154,12 @@
                     </select>
                 </div>
 
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres...">
+                    <button onclick="searchTable()">Zoeken</button>
+                </div>
+
                 <!-- Andere knoppen -->
                 <a href="/index.html" class="nav-link">Startpagina</a>
                 <a href="/files/contact.html" class="nav-link">Contact</a>
@@ -154,11 +184,6 @@
                                 <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
                             </span>
                         </th>
-                           <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
-                           </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
                                 <img src="/files/images/kenteken.png" alt="Kenteken" class="icon"> Kenteken
@@ -188,5 +213,33 @@
     <footer class="text-center text-gray-400 text-sm mt-4">
         &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.querySelector('table');
+            var rows = table.getElementsByTagName('tr');
+            
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var found = false;
+                
+                for (var j = 0; j < cells.length; j++) {
+                    var textValue = cells[j].textContent || cells[j].innerText;
+                    if (textValue.toUpperCase().indexOf(input) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+                
+                if (found) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 </html>
