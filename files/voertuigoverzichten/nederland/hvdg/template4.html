@@ -14,27 +14,15 @@
             margin: 0;
             padding: 0;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px; /* Verminder de padding rondom de container */
-            }
-
-            .table-container {
-                overflow-x: auto; /* Horizontaal scrollen toevoegen voor kleine schermen */
-                max-width: 100%; /* Maximale breedte voor de tabelcontainer */
-                margin-bottom: 10px; /* Onderste marge toevoegen */
-            }
-        }
     </style>
 </head>
 <body class="bg-gray-800 text-white">
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8 px-4">
         <div class="flex justify-between items-center mb-6">
             <input type="text" placeholder="Zoeken" class="p-2 bg-gray-700 rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <span>Laatst geüpdate: 08-07-2024, 12:33</span>
+            <span class="text-gray-400">Laatst geüpdate: 08-07-2024, 12:33</span>
         </div>
-        <div class="table-container bg-gray-900 rounded-lg shadow-lg p-6">
+        <div class="bg-gray-900 rounded-lg shadow-lg p-6">
             <div class="flex justify-between mb-4">
                 <div class="flex space-x-2">
                     <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Brandweer</button>
@@ -42,27 +30,29 @@
                 </div>
                 <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">01-HVGD</button>
             </div>
-            <table class="min-w-full bg-gray-800 rounded-lg">
-                <thead>
-                    <tr class="text-left border-b border-gray-700">
-                        <th class="p-4">Adres</th>
-                        <th class="p-4">Roepnummer</th>
-                        <th class="p-4">Type voertuig</th>
-                        <th class="p-4">Kenteken</th>
-                        <th class="p-4">Bijzonderheden</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b border-gray-700">
-                        <td class="p-4">01-10 Leek Tolbertstraat 66</td>
-                        <td class="p-4">01-1000</td>
-                        <td class="p-4">Dienstauto - DA 5</td>
-                        <td class="p-4">4-XFG-13</td>
-                        <td class="p-4">Mooie kleurtjes</td>
-                    </tr>
-                    <!-- Vervolg van de andere rijen hier -->
-                </tbody>
-            </table>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-gray-800 rounded-lg">
+                    <thead>
+                        <tr class="text-left border-b border-gray-700">
+                            <th class="p-4">Adres</th>
+                            <th class="p-4">Roepnummer</th>
+                            <th class="p-4">Type voertuig</th>
+                            <th class="p-4">Kenteken</th>
+                            <th class="p-4">Bijzonderheden</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-700">
+                            <td class="p-4">01-10 Leek Tolbertstraat 66</td>
+                            <td class="p-4">01-1000</td>
+                            <td class="p-4">Dienstauto - DA 5</td>
+                            <td class="p-4">4-XFG-13</td>
+                            <td class="p-4">Mooie kleurtjes</td>
+                        </tr>
+                        <!-- Vervolg van de andere rijen hier -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="flex justify-end space-x-4 mt-6">
             <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">Start</button>
