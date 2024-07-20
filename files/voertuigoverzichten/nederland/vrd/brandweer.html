@@ -2957,7 +2957,7 @@
     </div>
     <!-- Footer sectie -->
     <footer>
-        &copy; 2024 HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
     <!-- JavaScript voor zoekfunctionaliteit -->
@@ -2986,6 +2986,10 @@
                 }
             }
         }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var currentYear = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = currentYear;
+        });
     </script>
 </body>
 </html>
