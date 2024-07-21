@@ -66,6 +66,20 @@
             background-color: #4a5568;
         }
 
+        .nav-link {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            background-color: #4a5568;
+        }
+
         footer {
             background-color: #333;
             color: #ccc;
@@ -77,9 +91,11 @@
 </head>
 <body>
     <div class="container">
+        <a href="/index.html" class="nav-link">Terug naar start</a>
         <h1 class="text-center">Contacteer ons</h1>
         <div class="form-container">
             <form action="https://formspree.io/f/mvoejadn" method="POST">
+                
                 <label for="message">Uw bericht:</label>
                 <textarea id="message" name="message" rows="6" required></textarea>
                 
