@@ -1,55 +1,81 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voertuigoverzicht Ambulance België</title>
-    <link rel="stylesheet" href="../../../styles.css">
+    <title>HulpdienstVoertuigenNL-BE</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
     <style>
-        .button-container {
-            margin-bottom: 20px; 
+        body {
+            background: url('/files/images/background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
         }
-        .button {
-            display: inline-block;
-            padding: 5px 10px; 
-            font-size: 14px;
+
+        .container {
+            text-align: center;
+            background-color: rgba(51, 51, 51, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .nav-link {
             background-color: #333;
             color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
             text-decoration: none;
-            border-radius: 5px;
-        }
-        .button:hover {
-            background-color: #0056b3; 
-        }
-       .image-container {
-            text-align: center;
             margin-top: 20px;
+            display: inline-block;
         }
-        .image-container img {
+
+        .nav-link:hover {
+            background-color: #4a5568;
+        }
+
+        img {
             max-width: 100%;
             height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <a class="button" href="/index.html">VoertuigOverzichten</a>
-        <a class="button" href="/files/contact">Contact</a>
+    <div class="container">
+        <h1>Work in Progress</h1>
+        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
+        <a href="/index.html" class="nav-link">Terug naar start</a>
     </div>
-    
-    <h1>Ambulancevoertuigen</h1>
-    <p>Hier vind u een overzicht van alle ambulancevoertuigen van België. Let op: het laden van het overzicht kan enkele seconden duren. Wilt u een wijziging indienen, klik dan hierboven op Contact.</p>
-
-<div class="image-container">
-        <img src="/files/images/under-construction.jpg" alt="Under Construction">
-</div>
-    <footer id="footer">
-        &copy; <span id="year"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden. Gebruik van onderdelen vanaf deze site is zonder schriftelijke toestemming verboden.
+    <footer>
+        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
+
+    <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
     <script>
-        
-        const currentYear = new Date().getFullYear();
-        document.getElementById('year').textContent = currentYear;
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var currentYear = new Date().getFullYear();
+            var startYear = 2024;
+            var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
+            document.getElementById('currentYear').textContent = footerText;
+        });
     </script>
 </body>
 </html>
