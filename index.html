@@ -84,6 +84,7 @@
         .button-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Add this line to allow wrapping */
             margin-top: 20px;
         }
 
@@ -96,6 +97,7 @@
             background-color: #333;
             color: #fff;
             text-decoration: none;
+            text-align: center; /* Add this line for centering text */
         }
 
         /* Responsive styles */
@@ -142,6 +144,12 @@
             .content button {
                 font-size: 0.8em;
                 padding: 0.4em;
+            }
+
+            .button-container .button { /* Adjust button styling for smaller screens */
+                font-size: 1em;
+                padding: 0.4em 0.8em;
+                margin: 0.3em;
             }
         }
     </style>
