@@ -78,6 +78,7 @@
             justify-content: center;
             margin-top: 20px;
             flex-wrap: wrap;
+            gap: 10px; /* Adjusts space between buttons */
         }
 
         .button-container .button {
@@ -89,8 +90,8 @@
             background-color: #333;
             color: #fff;
             text-decoration: none;
-            flex: 1 0 30%;
             text-align: center;
+            white-space: nowrap; /* Ensures text doesn't wrap */
         }
 
         /* Responsive styles */
@@ -117,7 +118,6 @@
             }
 
             .button-container .button {
-                flex: 1 0 100%;
                 font-size: 1em;
             }
         }
@@ -145,7 +145,6 @@
             }
 
             .button-container .button {
-                flex: 1 0 100%;
                 font-size: 0.8em;
             }
         }
@@ -177,7 +176,6 @@
         <a class="button" href="nl_regioselectie/politie">Voertuigoverzicht Politie</a>
         <a class="button" href="nl_regioselectie/brandweer">Voertuigoverzicht Brandweer</a>
         <a class="button" href="nl_regioselectie/ambulance">Voertuigoverzicht Ambulance</a>
-        <a class="button" href="/index">Terug naar startpagina</a>
     </div>
 </body>
 </html>
