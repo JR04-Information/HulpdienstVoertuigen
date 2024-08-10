@@ -127,12 +127,15 @@
             max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
             overflow-y: auto; /* Scrollbaar maken bij overschrijding */
             flex: 1;
+            width: 100%; /* Breedte van de container */
+            overflow-x: auto; /* Maak de tabel horizontaal scrollbaar */
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             table-layout: fixed; /* Zorgt voor gelijke breedtes */
+            min-width: 900px; /* Minimale breedte van de tabel voor mobiel */
         }
 
         th, td {
@@ -259,47 +262,47 @@
             </tbody>
         </table>
     </div>
-    <!-- Footer sectie -->
-    <footer>
-        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
-    </footer>
+<!-- Footer sectie -->
+        <footer>
+            &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+        </footer>
 
-    <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var currentYear = new Date().getFullYear();
-            var startYear = 2024;
-            var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
-            document.getElementById('currentYear').textContent = footerText;
-        });
-    </script>
+        <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var currentYear = new Date().getFullYear();
+                var startYear = 2024;
+                var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
+                document.getElementById('currentYear').textContent = footerText;
+            });
+        </script>
 
-    <!-- JavaScript voor zoekfunctionaliteit -->
-    <script>
-        function searchTable() {
-            var input = document.getElementById('searchInput').value.toUpperCase();
-            var table = document.getElementById('dataTable');
-            var rows = table.getElementsByTagName('tr');
-            
-            for (var i = 1; i < rows.length; i++) {
-                var cells = rows[i].getElementsByTagName('td');
-                var rowContainsInput = false;
+        <!-- JavaScript voor zoekfunctionaliteit -->
+        <script>
+            function searchTable() {
+                var input = document.getElementById('searchInput').value.toUpperCase();
+                var table = document.getElementById('dataTable');
+                var rows = table.getElementsByTagName('tr');
+                
+                for (var i = 1; i < rows.length; i++) {
+                    var cells = rows[i].getElementsByTagName('td');
+                    var rowContainsInput = false;
 
-                for (var j = 0; j < cells.length; j++) {
-                    var cellValue = cells[j].textContent || cells[j].innerText;
-                    if (cellValue.toUpperCase().indexOf(input) > -1) {
-                        rowContainsInput = true;
-                        break;
+                    for (var j = 0; j < cells.length; j++) {
+                        var cellValue = cells[j].textContent || cells[j].innerText;
+                        if (cellValue.toUpperCase().indexOf(input) > -1) {
+                            rowContainsInput = true;
+                            break;
+                        }
+                    }
+
+                    if (rowContainsInput) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
                     }
                 }
-
-                if (rowContainsInput) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
             }
-        }
-    </script>
-</body>
+        </script>
+    </body>
 </html>
