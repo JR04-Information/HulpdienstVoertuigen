@@ -27,52 +27,104 @@
             flex-direction: column;
         }
 
-        .header {
+        .flex {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
         }
 
-        .dropdown-container,
-        .search-container {
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
             margin-right: 0.5rem;
         }
 
-        .dropdown-container select,
-        .search-container input[type=text],
-        .nav-link {
+        .dropdown-container select {
             font-size: 1em;
             padding: 0.3em 0.8em;
-            border-radius: 10px;
             border: none;
+            border-radius: 10px;
             background-color: #333;
             color: #fff;
-        }
-
-        .nav-links-container {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
         }
 
         .nav-link {
-            display: inline-block;
             background-color: #333;
             color: #fff;
-            padding: 0.2em 0.6em;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 0.875rem;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
+        .search-container {
+            margin-right: 0.5rem;
+        }
+
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
         .overflow-x-auto {
-            max-height: calc(100vh - 220px);
-            overflow-y: auto;
+            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
+            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
             flex: 1;
         }
 
@@ -84,24 +136,18 @@
         th, td {
             padding: 8px;
             text-align: left;
-            border: none;
+            border: none; /* Geen randen meer */
         }
 
         th {
-            background-color: #444;
+            background-color: #444; /* Kleur van de bovenste rij */
             color: white;
-            position: sticky;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
             top: 0;
         }
 
-        th img.icon {
-            width: 12px;
-            height: 12px;
-            margin-right: 4px;
-        }
-
         tbody tr:nth-child(odd) {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
         }
 
         footer {
@@ -109,33 +155,16 @@
             color: #ccc;
             text-align: center;
             padding: 10px;
-            margin-top: auto;
+            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
         }
 
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .dropdown-container,
-            .search-container,
-            .nav-links-container {
-                margin: 0;
-                width: 100%;
-            }
-
-            .nav-links-container {
-                margin-top: 0.5rem;
-                justify-content: flex-start;
-            }
-
             .overflow-x-auto {
-                max-height: none;
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
             }
 
-            table {
-                min-width: 600px;
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -162,15 +191,16 @@
                 </select>
             </div>
 
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
-            </div>
+            <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
 
-            <div class="nav-links-container">
+                <!-- Andere knoppen -->
                 <a href="/index.html" class="nav-link">Startpagina</a>
                 <a href="/files/contact.html" class="nav-link">Contact</a>
             </div>
-        </div>
+    </div>
 
         <div class="overflow-x-auto">
             <table id="dataTable">
