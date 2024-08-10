@@ -113,17 +113,35 @@
             color: white;
         }
 
-        .container {
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Definieer rijen: bovenkant, tabel, en footer */
+    height: 100vh; /* Volledige hoogte van het venster */
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
-.overflow-x-auto {
-    height: 1200px; /* Verhoogde hoogte */
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+
+.table-container {
+    grid-row: 2; /* Middelste rij voor de tabel */
     overflow-y: auto; /* Scrollbaar maken bij overschrijding */
+}
+
+.footer {
+    grid-row: 3; /* Onderste rij voor de footer */
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
 }
 
         table {
@@ -146,14 +164,6 @@
 
         tbody tr:nth-child(odd) {
             background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
-        }
-
-        footer {
-            background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
         }
 
         @media (max-width: 768px) {
