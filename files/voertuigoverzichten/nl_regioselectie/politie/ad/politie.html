@@ -98,25 +98,23 @@
         }
 
         .nav-links-container {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+    display: block; /* Hiermee zorg je dat de container zich gedraagt als een gewone block-element */
     margin-right: 0.5rem;
 }
 
 .nav-link {
-    display: inline-block; /* Zorg ervoor dat de knoppen alleen zo breed zijn als de tekst */
+    display: inline-block; /* Zorgt ervoor dat de knop slechts zo breed is als de tekst */
     background-color: #333;
     color: #fff;
-    padding: 0.2em 0.6em; /* Verminderde padding */
+    padding: 0.2em 0.6em; /* Padding rond de tekst */
     border-radius: 10px;
     text-decoration: none;
-    font-size: 0.875rem; /* Kleinere font size */
+    margin-right: 0.5rem; /* Ruimte tussen de knoppen */
+    font-size: 0.875rem; /* Kleinere lettergrootte */
 }
 
 .nav-link:hover {
-    background-color: #4a5568;
-}
+    background-color: #4a5568; /* Achtergrondkleur bij hover */
 }
         .search-container {
             margin-right: 0.5rem;
@@ -212,9 +210,12 @@
     </div>
 
     <!-- Andere knoppen -->
+    <!-- Verwijder flex-eigenschappen van de container -->
+<div class="nav-links-container">
     <a href="/index.html" class="nav-link">Startpagina</a>
     <a href="/files/contact.html" class="nav-link">Contact</a>
-
+</div>
+    
     <div class="overflow-x-auto">
         <table id="dataTable">
             <thead>
