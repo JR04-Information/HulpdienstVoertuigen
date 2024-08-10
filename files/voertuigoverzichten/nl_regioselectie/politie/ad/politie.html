@@ -96,9 +96,9 @@
         }
 
         th img.icon {
-            width: 12px; /* Verklein de grootte van de iconen */
-            height: 12px; /* Verklein de hoogte van de iconen */
-            margin-right: 4px; /* Ruimte tussen icoon en tekst */
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
         }
 
         tbody tr:nth-child(odd) {
@@ -114,21 +114,29 @@
         }
 
         @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dropdown-container,
+            .search-container,
+            .nav-links-container {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links-container {
+                margin-top: 0.5rem;
+                justify-content: flex-start;
+            }
+
             .overflow-x-auto {
                 max-height: none;
             }
 
             table {
                 min-width: 600px;
-            }
-
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .bg-gray-600 {
-                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -253,9 +261,9 @@
                 }
 
                 if (rowContainsInput) {
-                    rows[i].style.display = '';
-                } else {
                     rows[i].style.display = 'none';
+                } else {
+                    rows[i].style.display ='none';
                 }
             }
         }
