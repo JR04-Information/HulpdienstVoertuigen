@@ -16,35 +16,138 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center;
-            align-items: center;
         }
 
         .container {
-            text-align: center;
-            background-color: rgba(51, 51, 51, 0.8);
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
             border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
             background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        .search-container {
+            margin-right: 0.5rem;
+        }
+
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
             border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        .overflow-x-auto {
+            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
+            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
+            flex: 1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none; /* Geen randen meer */
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
         }
 
         footer {
@@ -52,19 +155,107 @@
             color: #ccc;
             text-align: center;
             padding: 10px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
+            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
+        }
+
+        @media (max-width: 768px) {
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Work in Progress</h1>
-        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
-        <a href="/index.html" class="nav-link">Terug naar start</a>
+    <div class="dropdown-container">
+        <select onchange="location = this.value;">
+            <option value="">Selecteer een veiligheidsregio</option>
+            <option value="politie/nn/politie">Politie Noord Nederland</option>
+            <option value="politie/on/politie">Politie Oost Nederland</option>
+            <option value="politie/md/politie">Politie Midden Nederland</option>
+            <option value="politie/nh/politie">Politie Noord-Holland</option>
+            <option value="politie/ad/politie">Politie Amsterdam</option>
+            <option value="politie/dh/politie">Politie Den Haag</option>
+            <option value="politie/rt/politie">Politie Rotterdam</option>
+            <option value="politie/zb/politie">Politie Zeeland West-Brabant</option>  
+            <option value="politie/ob/politie">Politie Oost Brabant</option>
+            <option valie="politie/lb/politie">Politie Limburg</option>
+            <option value="politie/lx/politie">Politie Landelijke Eenheid</option>
+            <option value="politie/kmar/politie">KMAR</option>
+            <option value="politie/dsi-at/politie">DSI & AT</option>
+        </select>
     </div>
-    <footer>
+
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
+
+                <!-- Andere knoppen -->
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="dataTable">
+                <thead>
+                    <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
+                            </span>
+                    </th>
+                    <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
+                            </span>
+                    </th>
+                    <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
+                            </span>
+                    </th>
+                    <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                    </th>
+                    <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                    </th>
+                    <tr class="bg-gray-800">
+                         <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Postnaam" class="icon"> Postnaam
+                            </span>
+                         </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Aantal Bedden" class="icon"> Aantal Bedden
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td>01-10 Leek, Tolberterstraat 66</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+                        <td></td>
+</tr>
+</tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Footer sectie -->
+        <footer>
         &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -76,6 +267,34 @@
             var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
             document.getElementById('currentYear').textContent = footerText;
         });
+    </script>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
+                    }
+                }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
