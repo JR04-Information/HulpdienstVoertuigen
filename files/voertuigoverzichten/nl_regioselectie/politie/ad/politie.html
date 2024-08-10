@@ -123,10 +123,11 @@
         }
 
         .overflow-x-auto {
-            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
-            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
-            flex: 1;
-        }
+    max-height: calc(100vh - 220px); /* Zorgt voor een grotere hoogte */
+    overflow-y: auto; /* Zorgt ervoor dat de inhoud scrollbaar is als deze groter is dan de container */
+    flex: 1;
+    height: 600px; /* Vaste hoogte voor desktop, pas dit aan naar wens */
+}
 
         table {
             width: 100%;
