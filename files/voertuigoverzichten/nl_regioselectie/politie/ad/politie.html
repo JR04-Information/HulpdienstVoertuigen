@@ -34,20 +34,17 @@
             flex-wrap: wrap;
         }
 
-        .dropdown-container,
-        .search-container {
+        .dropdown-container {
             margin-right: 0.5rem;
         }
 
-        .dropdown-container select,
-        .search-container input[type=text],
-        .nav-link {
-            font-size: 1em;
-            padding: 0.3em 0.8em;
-            border-radius: 10px;
-            border: none;
-            background-color: #333;
-            color: #fff;
+        .search-container {
+            margin-right: 0.5rem;
+            flex: 1;
+        }
+
+        .search-container input[type=text] {
+            width: 100%;
         }
 
         .nav-links-container {
@@ -115,14 +112,18 @@
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: flex-start;
             }
 
             .dropdown-container,
             .search-container,
             .nav-links-container {
-                margin: 0;
                 width: 100%;
+                margin: 0;
+            }
+
+            .search-container {
+                margin-bottom: 0.5rem;
             }
 
             .nav-links-container {
@@ -130,8 +131,9 @@
                 justify-content: flex-start;
             }
 
-            .overflow-x-auto {
-                max-height: none;
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 0.2em 0.4em;
             }
 
             table {
@@ -259,8 +261,7 @@
                     }
                 }
 
-                if (rowContainsInput) {
-                    rows[i].style.display = '';
+                rows[i].style.display = '';
                 } else {
                     rows[i].style.display = 'none';
                 }
