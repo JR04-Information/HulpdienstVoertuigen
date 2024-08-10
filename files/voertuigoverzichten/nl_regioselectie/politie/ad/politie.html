@@ -27,49 +27,104 @@
             flex-direction: column;
         }
 
-        .header {
+        .flex {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
         }
 
         .dropdown-container {
             margin-right: 0.5rem;
         }
 
-        .search-container {
-            margin-right: 0.5rem;
-            flex: 1;
-        }
-
-        .search-container input[type=text] {
-            width: 100%;
-        }
-
-        .nav-links-container {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
+            border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
-            display: inline-block;
             background-color: #333;
             color: #fff;
-            padding: 0.2em 0.6em;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 0.875rem;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
+        .search-container {
+            margin-right: 0.5rem;
+        }
+
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
         .overflow-x-auto {
-            max-height: calc(100vh - 220px);
-            overflow-y: auto;
+            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
+            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
             flex: 1;
         }
 
@@ -81,24 +136,18 @@
         th, td {
             padding: 8px;
             text-align: left;
-            border: none;
+            border: none; /* Geen randen meer */
         }
 
         th {
-            background-color: #444;
+            background-color: #444; /* Kleur van de bovenste rij */
             color: white;
-            position: sticky;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
             top: 0;
         }
 
-        th img.icon {
-            width: 12px;
-            height: 12px;
-            margin-right: 4px;
-        }
-
         tbody tr:nth-child(odd) {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
         }
 
         footer {
@@ -106,47 +155,28 @@
             color: #ccc;
             text-align: center;
             padding: 10px;
-            margin-top: auto;
+            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
         }
 
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
             }
 
-            .dropdown-container,
-            .search-container,
-            .nav-links-container {
-                width: 100%;
-                margin: 0;
-            }
-
-            .search-container {
+            .bg-gray-600 {
                 margin-bottom: 0.5rem;
-            }
-
-            .nav-links-container {
-                margin-top: 0.5rem;
-                justify-content: flex-start;
-            }
-
-            .nav-link {
-                font-size: 0.75rem;
-                padding: 0.2em 0.4em;
-            }
-
-            table {
-                min-width: 600px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="dropdown-container">
-                <select onchange="location = this.value;">
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-gray-400">Laatste update: 02-08-2024</div>
+            <div class="flex gap-2">
+                <!-- Dropdown voor veiligheidsregio's -->
+                <div class="dropdown-container">
+                  <select onchange="location = this.value;">
                     <option value="">Selecteer een veiligheidsregio</option>
                     <option value="politie/nn/politie">Politie Noord Nederland</option>
                     <option value="politie/on/politie">Politie Oost Nederland</option>
@@ -162,45 +192,25 @@
                     <option value="politie/kmar/politie">KMAR</option>
                     <option value="politie/dsi-at/politie">DSI & AT</option>
                 </select>
-            </div>
+                </div>
 
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
-            </div>
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
 
-            <div class="nav-links-container">
+                <!-- Andere knoppen -->
                 <a href="/index.html" class="nav-link">Startpagina</a>
                 <a href="/files/contact.html" class="nav-link">Contact</a>
             </div>
         </div>
-
         <div class="overflow-x-auto">
             <table id="dataTable">
                 <thead>
-                    <tr>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
-                            </span>
-                        </th>
+                    <tr class="bg-gray-800">
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
                                 <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
-                        </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
                             </span>
                         </th>
                         <th class="px-4 py-2">
@@ -210,7 +220,32 @@
                         </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/kenteken.png" alt="Kenteken" class="icon"> Kenteken
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
                                 <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                Test1
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                Test2
                             </span>
                         </th>
                     </tr>
@@ -223,17 +258,20 @@
                         <td> </td>
                         <td> </td>
                         <td> </td>
-                        <td></td>
+                        <td> </td>
+                        <td> </td>
                     </tr>
+                    <!-- Voeg hier extra rijen toe indien nodig -->
                 </tbody>
             </table>
         </div>
     </div>
-
+    <!-- Footer sectie -->
     <footer>
         &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
+    <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             var currentYear = new Date().getFullYear();
@@ -243,6 +281,7 @@
         });
     </script>
 
+    <!-- JavaScript voor zoekfunctionaliteit -->
     <script>
         function searchTable() {
             var input = document.getElementById('searchInput').value.toUpperCase();
@@ -261,7 +300,8 @@
                     }
                 }
 
-                rows[i].style.display = '';
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
                 } else {
                     rows[i].style.display = 'none';
                 }
