@@ -221,47 +221,44 @@
         </div>
     </div>
 
-<!-- Footer sectie -->
-        <footer>
-            &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
-        </footer>
+    <footer>
+        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+    </footer>
 
-        <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                var currentYear = new Date().getFullYear();
-                var startYear = 2024;
-                var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
-                document.getElementById('currentYear').textContent = footerText;
-            });
-        </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var currentYear = new Date().getFullYear();
+            var startYear = 2024;
+            var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
+            document.getElementById('currentYear').textContent = footerText;
+        });
+    </script>
 
-        <!-- JavaScript voor zoekfunctionaliteit -->
-        <script>
-            function searchTable() {
-                var input = document.getElementById('searchInput').value.toUpperCase();
-                var table = document.getElementById('dataTable');
-                var rows = table.getElementsByTagName('tr');
-                
-                for (var i = 1; i < rows.length; i++) {
-                    var cells = rows[i].getElementsByTagName('td');
-                    var rowContainsInput = false;
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+            for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
 
-                    for (var j = 0; j < cells.length; j++) {
-                        var cellValue = cells[j].textContent || cells[j].innerText;
-                        if (cellValue.toUpperCase().indexOf(input) > -1) {
-                            rowContainsInput = true;
-                            break;
-                        }
-                    }
-
-                    if (rowContainsInput) {
-                        rows[i].style.display = '';
-                    } else {
-                        rows[i].style.display = 'none';
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
                     }
                 }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
