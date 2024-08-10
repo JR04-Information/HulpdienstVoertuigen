@@ -30,7 +30,8 @@
         .header {
             display: flex;
             align-items: center;
-            gap: 1rem; /* Spacing between elements */
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .dropdown-container,
@@ -57,13 +58,13 @@
         }
 
         .nav-link {
-            display: inline-block; /* Zorg ervoor dat de knoppen alleen zo breed zijn als de tekst */
+            display: inline-block;
             background-color: #333;
             color: #fff;
-            padding: 0.2em 0.6em; /* Verminderde padding */
+            padding: 0.2em 0.6em;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 0.875rem; /* Kleinere font size */
+            font-size: 0.875rem;
         }
 
         .nav-link:hover {
@@ -71,8 +72,8 @@
         }
 
         .overflow-x-auto {
-            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
-            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
             flex: 1;
         }
 
@@ -84,18 +85,24 @@
         th, td {
             padding: 8px;
             text-align: left;
-            border: none; /* Geen randen meer */
+            border: none;
         }
 
         th {
-            background-color: #444; /* Kleur van de bovenste rij */
+            background-color: #444;
             color: white;
-            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            position: sticky;
             top: 0;
         }
 
+        th img.icon {
+            width: 12px; /* Verklein de grootte van de iconen */
+            height: 12px; /* Verklein de hoogte van de iconen */
+            margin-right: 4px; /* Ruimte tussen icoon en tekst */
+        }
+
         tbody tr:nth-child(odd) {
-            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         footer {
@@ -103,25 +110,25 @@
             color: #ccc;
             text-align: center;
             padding: 10px;
-            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
+            margin-top: auto;
         }
 
         @media (max-width: 768px) {
             .overflow-x-auto {
-                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+                max-height: none;
             }
 
             table {
-                min-width: 600px; /* Zorgt ervoor dat de tabel scrollbaar is op mobiel */
-            }
-
-            .bg-gray-600 {
-                margin-bottom: 0.5rem;
+                min-width: 600px;
             }
 
             .header {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -148,12 +155,10 @@
                 </select>
             </div>
 
-            <!-- Zoekbalk -->
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
             </div>
 
-            <!-- Container voor de knoppen -->
             <div class="nav-links-container">
                 <a href="/index.html" class="nav-link">Startpagina</a>
                 <a href="/files/contact.html" class="nav-link">Contact</a>
@@ -163,32 +168,32 @@
         <div class="overflow-x-auto">
             <table id="dataTable">
                 <thead>
-                    <th class="px-4 py-2">
-                        <span class="flex items-center justify-center">
-                            <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
-                        </span>
-                    </th>
-                    <th class="px-4 py-2">
-                        <span class="flex items-center justify-center">
-                            <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
-                        </span>
-                    </th>
-                    <th class="px-4 py-2">
-                        <span class="flex items-center justify-center">
-                            <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
-                        </span>
-                    </th>
-                    <th class="px-4 py-2">
-                        <span class="flex items-center justify-center">
-                            <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                        </span>
-                    </th>
-                    <th class="px-4 py-2">
-                        <span class="flex items-center justify-center">
-                            <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                        </span>
-                    </th>
-                    <tr class="bg-gray-800">
+                    <tr>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                            </span>
+                        </th>
                         <th class="px-4 py-2">
                             <span class="flex items-center justify-center">
                                 <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
@@ -216,22 +221,22 @@
         </div>
     </div>
 
-    <!-- Footer sectie -->
-    <footer>
-        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
-    </footer>
+<!-- Footer sectie -->
+        <footer>
+            &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+        </footer>
 
-    <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var currentYear = new Date().getFullYear();
-            var startYear = 2024;
-            var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
-            document.getElementById('currentYear').textContent = footerText;
-        });
-    </script>
+        <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var currentYear = new Date().getFullYear();
+                var startYear = 2024;
+                var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
+                document.getElementById('currentYear').textContent = footerText;
+            });
+        </script>
 
-<!-- JavaScript voor zoekfunctionaliteit (vervolg) -->
+        <!-- JavaScript voor zoekfunctionaliteit -->
         <script>
             function searchTable() {
                 var input = document.getElementById('searchInput').value.toUpperCase();
