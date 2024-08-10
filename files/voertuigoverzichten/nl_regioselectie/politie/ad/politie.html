@@ -131,12 +131,14 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            table-layout: fixed; /* Zorgt voor gelijke breedtes */
         }
 
         th, td {
-            padding: 8px;
+            padding: 6px; /* Verminderde padding */
             text-align: left;
-            border: none; /* Geen randen meer */
+            border: none;
+            word-wrap: break-word; /* Breekt lange woorden af */
         }
 
         th {
@@ -166,6 +168,10 @@
             .bg-gray-600 {
                 margin-bottom: 0.5rem;
             }
+
+            table {
+                font-size: 0.75rem; /* Verminderde lettergrootte op kleinere schermen */
+            }
         }
     </style>
 </head>
@@ -182,80 +188,79 @@
             <option value="politie/rt/politie">Politie Rotterdam</option>
             <option value="politie/zb/politie">Politie Zeeland West-Brabant</option>  
             <option value="politie/ob/politie">Politie Oost Brabant</option>
-            <option valie="politie/lb/politie">Politie Limburg</option>
+            <option value="politie/lb/politie">Politie Limburg</option>
             <option value="politie/lx/politie">Politie Landelijke Eenheid</option>
             <option value="politie/kmar/politie">KMAR</option>
             <option value="politie/dsi-at/politie">DSI & AT</option>
         </select>
     </div>
 
-                <!-- Zoekbalk -->
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
-                </div>
+    <!-- Zoekbalk -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+    </div>
 
-                <!-- Andere knoppen -->
-                <a href="/index.html" class="nav-link">Startpagina</a>
-                <a href="/files/contact.html" class="nav-link">Contact</a>
-            </div>
-        </div>
-        <div class="overflow-x-auto">
-            <table id="dataTable">
-                <thead>
+    <!-- Andere knoppen -->
+    <a href="/index.html" class="nav-link">Startpagina</a>
+    <a href="/files/contact.html" class="nav-link">Contact</a>
+
+    <div class="overflow-x-auto">
+        <table id="dataTable">
+            <thead>
+                <tr class="bg-gray-800">
                     <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
-                            </span>
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/adres.png" alt="Soort Post" class="icon"> Soort post
+                        </span>
                     </th>
                     <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
-                            </span>
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/adres.png" alt="Basisteam + Bureau" class="icon"> Basisteam + Bureau
+                        </span>
                     </th>
                     <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
-                            </span>
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/adres.png" alt="Adres" class="icon"> Adres
+                        </span>
                     </th>
                     <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                        </span>
                     </th>
                     <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
-                            </span>
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/type.png" alt="Type voertuig" class="icon"> Type voertuig
+                        </span>
                     </th>
-                    <tr class="bg-gray-800">
-                         <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
-                            </span>
-                         </th>
-                        <th class="px-4 py-2">
-                            <span class="flex items-center justify-center">
-                                <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-<td>01-10 Leek, Tolberterstraat 66</td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-                        <td></td>
-</tr>
-</tbody>
-            </table>
+                    <th class="px-4 py-2">
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/roepnummer.png" alt="Roepnummer" class="icon"> Roepnummer
+                        </span>
+                    </th>
+                    <th class="px-4 py-2">
+                        <span class="flex items-center justify-center">
+                            <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01-10 Leek, Tolberterstraat 66</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
         </div>
     </div>
     <!-- Footer sectie -->
-        <footer>
+    <footer>
         &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
