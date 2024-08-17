@@ -18,15 +18,6 @@
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
         .flex {
             display: flex;
             align-items: center;
@@ -122,11 +113,41 @@
             color: white;
         }
 
-        .overflow-x-auto {
-            max-height: calc(100vh - 220px); /* Verhoogde maximale hoogte */
-            overflow-y: auto; /* Scrollbaar maken bij overschrijding */
-            flex: 1;
-        }
+
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px; /* Voorkom dat de inhoud de footer overlapt */
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
+}
 
         table {
             width: 100%;
@@ -148,14 +169,6 @@
 
         tbody tr:nth-child(odd) {
             background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
-        }
-
-        footer {
-            background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            margin-top: auto; /* Zorgt ervoor dat de footer naar de onderkant van de pagina gaat */
         }
 
         @media (max-width: 768px) {
