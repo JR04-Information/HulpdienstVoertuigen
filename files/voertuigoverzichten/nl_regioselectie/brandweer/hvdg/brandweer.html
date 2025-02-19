@@ -5,114 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulpdienst Voertuigen</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
-        body {
-            background: url('/files/images/background.png') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .flex {
-            display: flex;
-            align-items: center;
-        }
-
-        .justify-between {
-            justify-content: space-between;
-        }
-
-        .gap-2 {
-            gap: 0.5rem;
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .text-gray-400 {
-            color: #ccc;
-        }
-
-        .bg-gray-600 {
-            background-color: #333;
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem;
-        }
-
-        .px-2 {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-
-        .py-1 {
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-        }
-
-        .text-sm {
-            font-size: 0.875rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-4 {
-            margin-top: 1rem;
-        }
-
-        img.icon {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-
-        .dropdown-container {
-            margin-right: 0.5rem;
-        }
-
-        .dropdown-container select {
-            font-size: 1em;
-            padding: 0.3em 0.8em;
-            border: none;
-            border-radius: 10px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .nav-link {
-            background-color: #333;
-            color: #fff;
-            padding: 0.3em 0.8em;
-            border-radius: 10px;
-            text-decoration: none;
-            margin-right: 0.5rem;
-        }
-
-        .nav-link:hover {
-            background-color: #4a5568;
-        }
-
-        .search-container {
-            margin-right: 0.5rem;
-        }
 <style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
@@ -288,46 +180,47 @@ footer {
                 margin-bottom: 0.5rem;
             }
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="container mx-auto p-4">
         <div class="flex justify-between items-center mb-4">
-            <div class="text-gray-400">Laatste update: 24-11-2024</div>
+            <div class="text-gray-400">Laatste update: 19-02-2025</div>
             <div class="flex gap-2">
                 <!-- Dropdown voor veiligheidsregio's -->
                 <div class="dropdown-container">
                     <select onchange="if (this.value) window.location.href=this.value;">
                         <option value="">Selecteer een veiligheidsregio</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/hvdg/brandweer">(01) Veiligheidsregio Groningen</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrf/brandweer">(02) Veiligheidsregio Friesland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrd/brandweer">(03) Veiligheidsregio Drenthe</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrij/brandweer">(04) Veiligheidsregio IJsselland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrt/brandweer">(05) Veiligheidsregio Twente</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vnog/brandweer">(06) Veiligheidsregio Noord en Oost Gelderland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vggm/brandweer">(07) Veiligheidsregio Gelderland Midden</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrgz/brandweer">(08) Veiligheidsregio Gelderland Zuid</option>  
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vru/brandweer">(09) Veiligheidsregio Utrecht</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrnhn/brandweer">(10) Veiligheidsregio Noord-Holland Noord</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzw/brandweer">(11) Veiligheidsregio Zaanstreek-Waterland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrk/brandweer">(12) Veiligheidsregio Kennemerland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vraa/brandweer">(13) Veiligheidsregio Amsterdam-Amstelland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrgv/brandweer">(14) Veiligheidsregio Gooi en Vechtstreek</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrh/brandweer">(15) Veiligheidsregio Haaglanden</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrhm/brandweer">(16) Veiligheidsregio Hollands Midden</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrr/brandweer">(17) Veiligheidsregio Rotterdam-Rijnmond</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzhz/brandweer">(18) Veiligheidsregio Zuid-Holland Zuid</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrz/brandweer">(19) Veiligheidsregio Zeeland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrmwb/brandweer">(20) Veiligheidsregio Midden en west Brabant</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrbn/brandweer">(21) Veiligheidsregio Brabant-Noord</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrbzo/brandweer">(22) Veiligheidsregio Brabant Zuid Oost</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrln/brandweer">(23) Veiligheidsregio Limburg-Noord</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzl/brandweer">(24) Veiligheidsregio Zuid-Limburg</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrfl/brandweer">(25) Veiligheidsregio Flevoland</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/ifv/brandweer">(26) Instituut Fysieke Veiligheid</option>
-                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/def/brandweer">(28) Defensie</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/hvdg/brandweer.html">(01) Veiligheidsregio Groningen</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrf/brandweer.html">(02) Veiligheidsregio Friesland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrd/brandweer.html">(03) Veiligheidsregio Drenthe</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrij/brandweer.html">(04) Veiligheidsregio IJsselland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrt/brandweer.html">(05) Veiligheidsregio Twente</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vnog/brandweer.html">(06) Veiligheidsregio Noord en Oost Gelderland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vggm/brandweer.html">(07) Veiligheidsregio Gelderland Midden</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrgz/brandweer.html">(08) Veiligheidsregio Gelderland Zuid</option>  
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vru/brandweer.html">(09) Veiligheidsregio Utrecht</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrnhn/brandweer.html">(10) Veiligheidsregio Noord-Holland Noord</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzw/brandweer.html">(11) Veiligheidsregio Zaanstreek-Waterland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrk/brandweer.html">(12) Veiligheidsregio Kennemerland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vraa/brandweer.html">(13) Veiligheidsregio Amsterdam-Amstelland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrgv/brandweer.html">(14) Veiligheidsregio Gooi en Vechtstreek</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrh/brandweer.html">(15) Veiligheidsregio Haaglanden</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrhm/brandweer.html">(16) Veiligheidsregio Hollands Midden</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrr/brandweer.html">(17) Veiligheidsregio Rotterdam-Rijnmond</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzhz/brandweer.html">(18) Veiligheidsregio Zuid-Holland Zuid</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrz/brandweer.html">(19) Veiligheidsregio Zeeland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrmwb/brandweer.html">(20) Veiligheidsregio Midden en west Brabant</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrbn/brandweer.html">(21) Veiligheidsregio Brabant-Noord</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrbzo/brandweer.html">(22) Veiligheidsregio Brabant Zuid Oost</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrln/brandweer.html">(23) Veiligheidsregio Limburg-Noord</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrzl/brandweer.html">(24) Veiligheidsregio Zuid-Limburg</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/vrfl/brandweer.html">(25) Veiligheidsregio Flevoland</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/ifv/brandweer.html">(26) Instituut Fysieke Veiligheid</option>
+                        <option value="/files/voertuigoverzichten/nl_regioselectie/brandweer/def/brandweer.html">(28) Defensie</option>
                     </select>
                 </div>
+
 
                 <!-- Zoekbalk -->
                 <div class="search-container">
@@ -574,7 +467,7 @@ footer {
 <td>DB 9</td>
 <td>Dienstbus</td>
 <td>ZB-107-K</td>
-<td>Tevens 01-1328 VE-GS</td>
+<td>Tevens 01-1328 VK-GS</td>
 </tr>
 <tr>
 <td>Grijpskerk</td>
@@ -670,7 +563,7 @@ footer {
 <td>BOH-DC</td>
 <td>Basis Ontsmettings Haakarmbak </td>
 <td>-</td>
-<td>Samen met 26-8228 en 26-8182 NBC peloton</td>
+<td>Met 26-8228/26-8182 NBC peloton</td>
 </tr>
 <tr>
 <td> </td>
@@ -742,7 +635,7 @@ footer {
 <td>(DB) PM 7</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>31-VXS-5</td>
-<td>Tevens 01.1428 VE-GS</td>
+<td>Tevens 01.1428 VK-GS</td>
 </tr>
 <tr>
 <td>Zoutkamp </td>
@@ -908,9 +801,9 @@ footer {
 <td>Bedum</td>
 <td>01-1627</td>
 <td>(DB) OS</td>
-<td>Dienstbus Olieschermen</td>
+<td>Dienstbus Olieschermen </td>
 <td>VN-690-F</td>
-<td>Trekt ook de BRV-K speciaal voor dit voertuig </td>
+<td> </td>
 </tr>
 <tr>
 <td>Bedum</td>
@@ -927,6 +820,14 @@ footer {
 <td>Dienstbus Gereedschap/Materiaal</td>
 <td>00-BBJ-4</td>
 <td> </td>
+</tr>
+<tr>
+<td>Bedum</td>
+<td>-</td>
+<td>BRV-K</td>
+<td>Brandweervaartuig Klein </td>
+<td>ONBEKEND</td>
+<td>Speciaal voor de 01-1627</td>
 </tr>
 <tr>
 <td> </td>
@@ -950,7 +851,7 @@ footer {
 <td>DB 7</td>
 <td>Dienstbus</td>
 <td>J-193-DZ</td>
-<td>Tevens 01-1728 VE-GS</td>
+<td>Tevens 01-1728 VK-GS</td>
 </tr>
 <tr>
 <td>Ten Boer</td>
@@ -1046,7 +947,7 @@ footer {
 <td>(DB) PM 2</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>2-VRG-34</td>
-<td>Regionaal Voertuig t.b.v. vakbekwaamheid</td>
+<td>Regionaal voertuig. T.b.v. vakbekwaamheid</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1062,7 +963,7 @@ footer {
 <td>HV</td>
 <td>Hulpverleningsvoertuig</td>
 <td>BS-ZV-44</td>
-<td>Reserve Voertuig</td>
+<td>Reserve voertuig</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1078,7 +979,7 @@ footer {
 <td>(DB) PM 3</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>V-791-XZ</td>
-<td>Regionaal Voertuig</td>
+<td>Regionaal voertuig</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1094,7 +995,7 @@ footer {
 <td>TS 7</td>
 <td>Tankautospuit</td>
 <td>10-BSZ-3</td>
-<td>Reserve Voertuig</td>
+<td>Reserve voertuig</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1102,31 +1003,31 @@ footer {
 <td>TS 7</td>
 <td>Tankautospuit</td>
 <td>28-BTD-8</td>
-<td>Reserve Voertuig</td>
+<td>Reserve voertuig</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
 <td>01-0185</td>
-<td>(DB) LO/AB/AH</td>
-<td>Dienstbus Logistiek/Adembescherming/Arbeidshygiëne </td>
+<td>(DB) LO</td>
+<td>Dienstbus Logistiek</td>
 <td>V-688-LX</td>
-<td>T.b.v. Logistiek</td>
+<td> </td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
 <td>01-0187</td>
-<td>VW-LO/AB/AH</td>
-<td>VrachtWagen Logistiek/Adembescherming/Arbeidshygiëne </td>
+<td>VW-LO</td>
+<td>Vrachtwagen Logistiek </td>
 <td>61-BRD-6</td>
-<td>T.b.v. Logistiek</td>
+<td> </td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
 <td>01-0189</td>
-<td>VW-LO/AB/AH</td>
-<td>VrachtWagen Logistiek/Adembescherming/Arbeidshygiëne </td>
+<td>VW-LO</td>
+<td>Vrachtwagen Logistiek </td>
 <td>44-BBK-6</td>
-<td>T.b.v. Logistiek</td>
+<td> </td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1142,7 +1043,7 @@ footer {
 <td>(DA) AGS</td>
 <td>Dienstauto Adviseur Gevaarlijke Stoffen</td>
 <td>G-742-BT</td>
-<td>T.b.v. Coördinator VE-GS</td>
+<td>T.b.v. Coördinator VK-GS</td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1180,7 +1081,7 @@ footer {
 <td>Groningen Hoofdpost</td>
 <td>01-0401</td>
 <td>(DA) OVD-BZ</td>
-<td>Dienstauto Officier Van Dienst BevolkingsZorg</td>
+<td>Dienstauto Officier Van Dienst Bevolkingszorg</td>
 <td>J-922-SX</td>
 <td> </td>
 </tr>
@@ -1188,7 +1089,7 @@ footer {
 <td>Groningen Hoofdpost</td>
 <td>01-0402</td>
 <td>(DA) OVD-BZ</td>
-<td>Dienstauto Officier Van Dienst BevolkingsZorg</td>
+<td>Dienstauto Officier Van Dienst Bevolkingszorg</td>
 <td>J-926-SX</td>
 <td> </td>
 </tr>
@@ -1262,7 +1163,7 @@ footer {
 <td>BOH-DC</td>
 <td>Basis Ontsmetings Haakarmbak </td>
 <td>-</td>
-<td>Op de 01-1883</td>
+<td> </td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1310,7 +1211,7 @@ footer {
 <td>SBH</td>
 <td>Schuimblus Haakarmbak</td>
 <td>-</td>
-<td>Op de 01-1884</td>
+<td> </td>
 </tr>
 <tr>
 <td>Groningen Hoofdpost</td>
@@ -1460,9 +1361,9 @@ footer {
 <td>Groningen Hoofdpost</td>
 <td>26-8182</td>
 <td>VZH</td>
-<td>Vwrzorgings Haakarmbak Warme Zone</td>
+<td>Verzorgings Haakarmbak Warme Zone</td>
 <td>-</td>
-<td>Samen met 26-8228 en 26-8124 NBC peloton</td>
+<td>Met 26-8228/26-8124 NBC peloton</td>
 </tr>
 <tr>
 <td> </td>
@@ -1518,14 +1419,14 @@ footer {
 <td>DB 9</td>
 <td>Dienstbus</td>
 <td>96-ZTH-9</td>
-<td>Tevens 01-2028 VE-GS</td>
+<td>Tevens 01-2028 VK-GS</td>
 </tr>
 <tr>
 <td>Haren</td>
 <td>01-2016</td>
 <td>BRV-M</td>
 <td>Brandweer Vaartuig (Middel)</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -1574,7 +1475,7 @@ footer {
 <td>TS 7</td>
 <td>Tankautospuit</td>
 <td>BX-JJ-33</td>
-<td>Reserve Voertuig</td>
+<td>Reserve voertuig</td>
 </tr>
 <tr>
 <td>Hoogezand-Sappemeer</td>
@@ -1622,7 +1523,7 @@ footer {
 <td>DB 9</td>
 <td>Dienstbus</td>
 <td>JH-377-V</td>
-<td>Tevens 01-2128 VE-GS</td>
+<td>Tevens 01-2128 VK-GS</td>
 </tr>
 <tr>
 <td>Hoogezand-Sappemeer</td>
@@ -1694,7 +1595,7 @@ footer {
 <td>SHH</td>
 <td>Specialistische Technische Hulpverlenings Haakarmbak</td>
 <td>-</td>
-<td>T.b.v. Specialisme Technische Hulpverlening (STH)</td>
+<td>T.b.v THU IFV (STH)</td>
 </tr>
 <tr>
 <td> </td>
@@ -1717,7 +1618,7 @@ footer {
 <td>01-1865</td>
 <td>ABA</td>
 <td>Adembeschermings Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -1829,7 +1730,7 @@ footer {
 <td>01-23</td>
 <td>BMA</td>
 <td>Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -1853,7 +1754,7 @@ footer {
 <td>01-23WOA</td>
 <td>BRV-K</td>
 <td>Brandweer Vaartuig (Klein)</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -1890,11 +1791,11 @@ footer {
 </tr>
 <tr>
 <td>Nieuwe Pekela</td>
-<td>01-2472</td>
-<td>HV</td>
-<td>Hulpverleningsvoertuig</td>
-<td>BN-ZH-09</td>
-<td> </td>
+<td>01-2471</td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig met Kraan</td>
+<td>BS-LT-02</td>
+<td>Wissel tussen Oud en Nieuw Pekela</td>
 </tr>
 <tr>
 <td> </td>
@@ -1965,7 +1866,7 @@ footer {
 <td>01-25ABA</td>
 <td>ABA</td>
 <td>Adembeschermings Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -2006,7 +1907,7 @@ footer {
 <td>(DB) PM 3</td>
 <td>Dienstbus Personeel/Materialen</td>
 <td>V-76-DXN</td>
-<td>Tevens 01-2528 VE-GS</td>
+<td>Tevens 01-2528 VK-GS</td>
 </tr>
 <tr>
 <td>Veendam </td>
@@ -2021,7 +1922,7 @@ footer {
 <td>01-2516</td>
 <td>BRV-M</td>
 <td>Brandweer Vaartuig (Middel)</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -2067,9 +1968,9 @@ footer {
 <tr>
 <td>Veendam </td>
 <td>01-2577</td>
-<td>HVH-instorting</td>
+<td>HVH-I</td>
 <td>Hulpverlenings Haakarmbak Instorting</td>
-<td>93-T104</td>
+<td>-</td>
 <td> </td>
 </tr>
 <tr>
@@ -2083,8 +1984,8 @@ footer {
 <tr>
 <td>Veendam </td>
 <td>01-2587</td>
-<td>VW-LO/AB/AH</td>
-<td>VrachtWagen Logistiek/Adembescherming/Arbeidshygiëne </td>
+<td>VW-LO</td>
+<td>Vrachtwagen Logistiek</td>
 <td>BX-BN-53</td>
 <td> </td>
 </tr>
@@ -2093,7 +1994,7 @@ footer {
 <td>01-25HVA</td>
 <td>HVA</td>
 <td>Hulpverlenings Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -2142,7 +2043,7 @@ footer {
 <td>DB 9</td>
 <td>Dienstbus</td>
 <td>78-TGL-6</td>
-<td>Tevens 01-2628 VE-GS</td>
+<td>Tevens 01-2628 VK-GS</td>
 </tr>
 <tr>
 <td>Stadskanaal </td>
@@ -2198,7 +2099,7 @@ footer {
 <td>(DB) PM 3</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>5-VTD-67</td>
-<td>Tevens 01-2728 VE-GS</td>
+<td>Tevens 01-2728 VK-GS</td>
 </tr>
 <tr>
 <td>Ter Apel </td>
@@ -2230,7 +2131,7 @@ footer {
 <td>(DB) PM 5</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>5-VTD-66</td>
-<td>Tevens 01-3628 VE-GS</td>
+<td>Tevens 01-3628 VK-GS</td>
 </tr>
 <tr>
 <td>Vlagtwedde</td>
@@ -2285,7 +2186,7 @@ footer {
 <td>01-28WOA</td>
 <td>BRV-K</td>
 <td>Brandweer Vaartuig (Klein)</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -2309,7 +2210,7 @@ footer {
 <td>01-29Aanhanger</td>
 <td>BMA</td>
 <td>Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -2446,7 +2347,7 @@ footer {
 <td>DB 9</td>
 <td>Dienstbus</td>
 <td>X-337-RN</td>
-<td>Tevens 01-2928 VE-GS</td>
+<td>Tevens 01-2928 VK-GS</td>
 </tr>
 <tr>
 <td>Winschoten </td>
@@ -2534,7 +2435,7 @@ footer {
 <td>(DB) PM 3</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>5-VTS-81</td>
-<td>Tevens 01-3028 VE-GS</td>
+<td>Tevens 01-3028 VK-GS</td>
 </tr>
 <tr>
 <td>Bierum </td>
@@ -2566,7 +2467,7 @@ footer {
 <td>WO</td>
 <td>Waterongevallenvoertuig</td>
 <td>5-VGH-41</td>
-<td>Reserve Waterongevallenvoertuig</td>
+<td>Reserve voertuig</td>
 </tr>
 <tr>
 <td>Delfzijl </td>
@@ -2712,14 +2613,14 @@ footer {
 <td>57-BDL-2</td>
 <td> </td>
 </tr>
-                    <tr>
-<td>Delfzijl </td>
+<tr>
+<td>Delfzijl</td>
 <td>01-3082</td>
 <td>HA</td>
 <td>Haakarmvoertuig</td>
 <td>86-BTZ-4</td>
-<td></td>
-                    </tr>
+<td> </td>
+</tr>
 <tr>
 <td>Delfzijl </td>
 <td>01-3793</td>
@@ -2846,7 +2747,7 @@ footer {
 <td>(DB) PM 3</td>
 <td>Dienstbus Personeel/Materiaal</td>
 <td>6-VVN-05</td>
-<td>Tevens 01-3228 VE-GS</td>
+<td>Tevens 01-3228 VK-GS</td>
 </tr>
 <tr>
 <td>Loppersum</td>
@@ -3029,7 +2930,7 @@ footer {
 <td>MSA Falck</td>
 <td>MSA</td>
 <td>Motorspuit Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -3037,7 +2938,7 @@ footer {
 <td>SLA Falck</td>
 <td>SLA</td>
 <td>Slangen Aanhanger</td>
-<td>ONBEKEND </td>
+<td>ONBEKEND</td>
 <td> </td>
 </tr>
 <tr>
@@ -3136,13 +3037,15 @@ footer {
 <td>ZZ-91-50</td>
 <td>Amerikaans model</td>
 </tr>
-                </tbody>
+
+
+</tbody>
             </table>
         </div>
     </div>
     <!-- Footer sectie -->
         <footer>
-        &copy; 2024 - <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
+        &copy; <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
     <!-- JavaScript voor het instellen van het huidige jaar in de footer -->
@@ -3154,13 +3057,14 @@ footer {
             document.getElementById('currentYear').textContent = footerText;
         });
     </script>
+
     <!-- JavaScript voor zoekfunctionaliteit -->
     <script>
         function searchTable() {
             var input = document.getElementById('searchInput').value.toUpperCase();
             var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
-            
+
             for (var i = 1; i < rows.length; i++) {
                 var cells = rows[i].getElementsByTagName('td');
                 var rowContainsInput = false;
@@ -3180,8 +3084,6 @@ footer {
                 }
             }
         }
-        
-        });
     </script>
 </body>
 </html>
