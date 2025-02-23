@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulpdienst Voertuigen</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
+<style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -16,55 +16,1639 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center;
+        }
+
+        .flex {
+            display: flex;
             align-items: center;
         }
 
-        .container {
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
             text-align: center;
-            background-color: rgba(51, 51, 51, 0.8);
-            padding: 20px;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
             border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
             background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .search-container {
+            margin-right: 0.5rem;
         }
 
-        footer {
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
             background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
+            color: white;
         }
-    </style>
+
+
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px; /* Voorkom dat de inhoud de footer overlapt */
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none; /* Geen randen meer */
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+        }
+
+        @media (max-width: 768px) {
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
+            }
+        }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Work in Progress</h1>
-        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
-        <a href="/index.html" class="nav-link">Terug naar start</a>
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-gray-400">Laatste update: 23-02-2025</div>
+            <div class="flex gap-2">
+                <!-- Dropdown voor zones -->
+                <div class="dropdown-container">
+                    <select onchange="if (this.value) window.location.href=this.value;">
+                        <option value="">Selecteer een zone</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/antwerpen/brandweer.html">Zone Antwerpen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/brussel/brandweer.html">Zone Brussel</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/limburg/brandweer.html">Zone Limburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/oost-vlaanderen/brandweer.html">Zone Oost Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/vlaams-brabant/brandweer.html">Zone Vlaams Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/west-vlaanderen/brandweer.html">Zone West Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/henegouwen/brandweer.html">Zone Henegouwen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/luik/brandweer.html">Zone Luik</option>  
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/luxemburg/brandweer.html">Zone Luxemburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/waals-brabant/brandweer.html">Zone Waals Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/namen/brandweer.html">Zone Namen</option>
+        </select>
+                </div>
+
+
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
+
+                <!-- Andere knoppen -->
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="dataTable">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Postnaam" class="icon"> Postnaam / adres
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Roepnaam/Roepnummer" class="icon">Roepnummer
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type" class="icon"> Type voertuig
+                            </span>
+                           </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
+                            </span>
+                           </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td>Brussel Zone 1 ( Brussel )</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht - Bergensesteenweg 627</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>P8</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>P2</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>P35</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>P40</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>E6</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>C32</td>
+<td>SIG</td>
+<td>Signalisatievoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>S5</td>
+<td>SVV</td>
+<td>Salvagevoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Anderlecht</td>
+<td>TC13</td>
+<td>KPC</td>
+<td>Kuikenpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Chênai - Eikenboslaan 161b</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Chênai</td>
+<td>P30</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Cité - Rivolistraat 42</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Cité </td>
+<td>P34</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Cité </td>
+<td>E10</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Delta - Triomflaan 1050</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Delta </td>
+<td>P33</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Delta</td>
+<td>P45</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Delta</td>
+<td>E5</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Delta</td>
+<td>C31</td>
+<td>SIG</td>
+<td>Signalisatievoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport - Helihavenlaan 15</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P17</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P16</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P15</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P14</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P13</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P12</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P11</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P10</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P9</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P3</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P5</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P6</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P7</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P39</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P38</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P29</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P32</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P31</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P1</td>
+<td>ZSA</td>
+<td>Zware Schuim Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P17</td>
+<td>ZSA</td>
+<td>Zware Schuim Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P46</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P47</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P48</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P42</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P43</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E11</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E12</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E2</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E3</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E18</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E19</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E8</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E9</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>E21</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S8</td>
+<td>SH</td>
+<td>Snelle Hulpwagen</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S14</td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S11</td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T41</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T42</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T43</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S9</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S10</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C21</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C22</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C9</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C23</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C45</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C46</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C47</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C5</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C7</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C50</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C53</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C54</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C55</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C34</td>
+<td>SIG</td>
+<td>Signalisatievoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S12</td>
+<td>SWV</td>
+<td>Spoorwegvoertuig ( kan op spoor rijden )</td>
+<td>T.b.v Spoor</td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>P20</td>
+<td>DPV</td>
+<td>DompelPomp Voertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T2</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C56</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T10</td>
+<td>PBW</td>
+<td>Poederbluswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T15</td>
+<td>PBW</td>
+<td>Poederbluswagen</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T20</td>
+<td>BM</td>
+<td>Kraanwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T44</td>
+<td>BM</td>
+<td>Plateauvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T9</td>
+<td>BM</td>
+<td>Verlichtingsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T13</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T16</td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C12</td>
+<td>(DB) ON</td>
+<td>Dienstbus Ondersteuning</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S4</td>
+<td>BM</td>
+<td>Dienstbus Hondenbrigade </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S41</td>
+<td>HR</td>
+<td>RISC / GRIMP ( Hoogteredding )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S40</td>
+<td>HR</td>
+<td>RISC / GRIMP ( Hoogteredding )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S2</td>
+<td>HR</td>
+<td>RISC / GRIMP ( Hoogteredding )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>S6</td>
+<td>BM</td>
+<td>Casualty Extraction Team voertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V1</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V2</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V3</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V17</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V18</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V19</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V20</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V21</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V22</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V23</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V24</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V25</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V26</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V27</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V28</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V29</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V30</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V35</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V36</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V37</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V38</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V39</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V40</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V4</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V5</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V6</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V7</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V8</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V9</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V12</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>V11</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C57</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C58</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C59</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C60</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C61</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C62</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>C1</td>
+<td>DB</td>
+<td>Dienstbus</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R1</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R46</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R47</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R48</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R49</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R50</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R51</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R52</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R53</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R54</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R55</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R25</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R59</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R58</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R57</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>R56</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T12</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T35</td>
+<td>HA</td>
+<td>Haakarmvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T34</td>
+<td>HA</td>
+<td>Haakarmvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T33</td>
+<td>HA-KR </td>
+<td>Haakarmvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T31</td>
+<td>HA-KR </td>
+<td>Haakarmvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>T32</td>
+<td>HA</td>
+<td>Haakarmvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC0</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC2</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC3</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC7</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC8</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC9</td>
+<td>STC</td>
+<td>Schuimtank Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC1</td>
+<td>DPC</td>
+<td>DompelPomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC11</td>
+<td>SLC </td>
+<td>Slangen Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC12</td>
+<td>BMC</td>
+<td>Generator Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC4</td>
+<td>IGS-CMIC</td>
+<td>IGS -CMIC / milieucontainer </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC5</td>
+<td>DCC</td>
+<td>Decontaminatie Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC6</td>
+<td>DCC</td>
+<td>Decontaminatie Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC10</td>
+<td>SWC</td>
+<td>Lorry Container</td>
+<td>T.b.v Spoor</td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td>TC11</td>
+<td>BMC</td>
+<td>Haspel Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>BM</td>
+<td>Vorkheftruck</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>MTA</td>
+<td>Monitor Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>HRA</td>
+<td>RISC / GRIMP ( Hoogteredding Aanhanger )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>SWA</td>
+<td>Lorry Aanhanger </td>
+<td>T.b.v Spoor</td>
+</tr>
+<tr>
+<td>Héliport</td>
+<td> </td>
+<td>SWA</td>
+<td>Lorry Aanhanger </td>
+<td>T.b.v Spoor</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Schaarbeek - Haachtsesteenweg 575</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Schaarbeek </td>
+<td>P36</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Schaarbeek</td>
+<td>E4</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Schaarbeek</td>
+<td> </td>
+<td>SIG</td>
+<td>Signalisatievoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Schaarbeek</td>
+<td>V10</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>UCL - Hippocrateslaan 92</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>UCL</td>
+<td>P37</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>VUB - Dikkebeuklaan 251</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>VUB</td>
+<td>P4</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>VUB</td>
+<td>P49</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>VUB</td>
+<td>E7</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>VUB</td>
+<td>C33</td>
+<td>SIG</td>
+<td>Signalisatievoertuig</td>
+<td> </td>
+</tr>
+
+
+</tbody>
+            </table>
+        </div>
     </div>
-    <footer>
+    <!-- Footer sectie -->
+                <footer>
         &copy; <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -76,6 +1660,34 @@
             var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
             document.getElementById('currentYear').textContent = footerText;
         });
+    </script>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+           for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
+                    }
+                }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
