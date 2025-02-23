@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulpdienst Voertuigen</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
+<style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -16,55 +16,6602 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center;
+        }
+
+        .flex {
+            display: flex;
             align-items: center;
         }
 
-        .container {
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
             text-align: center;
-            background-color: rgba(51, 51, 51, 0.8);
-            padding: 20px;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
             border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
             background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .search-container {
+            margin-right: 0.5rem;
         }
 
-        footer {
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
             background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
+            color: white;
         }
-    </style>
+
+
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px; /* Voorkom dat de inhoud de footer overlapt */
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none; /* Geen randen meer */
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+        }
+
+        @media (max-width: 768px) {
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
+            }
+        }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Work in Progress</h1>
-        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
-        <a href="/index.html" class="nav-link">Terug naar start</a>
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-gray-400">Laatste update: 23-02-2025</div>
+            <div class="flex gap-2">
+                <!-- Dropdown voor zones -->
+                <div class="dropdown-container">
+                    <select onchange="if (this.value) window.location.href=this.value;">
+                        <option value="">Selecteer een zone</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/antwerpen/brandweer.html">Zone Antwerpen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/brussel/brandweer.html">Zone Brussel</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/limburg/brandweer.html">Zone Limburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/oost-vlaanderen/brandweer.html">Zone Oost Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/vlaams-brabant/brandweer.html">Zone Vlaams Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/west-vlaanderen/brandweer.html">Zone West Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/henegouwen/brandweer.html">Zone Henegouwen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/luik/brandweer.html">Zone Luik</option>  
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/luxemburg/brandweer.html">Zone Luxemburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/waals-brabant/brandweer.html">Zone Waals Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/brandweer/namen/brandweer.html">Zone Namen</option>
+        </select>
+                </div>
+
+
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
+
+                <!-- Andere knoppen -->
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="dataTable">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Postnaam" class="icon"> Postnaam / adres
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Roepnaam/Roepnummer" class="icon">Roepnummer
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type" class="icon"> Type voertuig
+                            </span>
+                        </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/type.png" alt="Type" class="icon"> Type voertuig
+                            </span>
+                           </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Bijzonderheden" class="icon"> Bijzonderheden
+                            </span>
+                           </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td>West-Vlaanderen Zone 1 </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge - Vredelaan 27</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>A119</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>E113</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>M113</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>L137</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>S115</td>
+<td>DAT</td>
+<td>Dienstauto   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>L120</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>L117</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>S150</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td>L119</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td> </td>
+<td>DPA</td>
+<td>Dompelpomp Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Blankenberge </td>
+<td> </td>
+<td>EGA</td>
+<td>Elektrogeen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge - Pathoekeweg 215</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>A103</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>A105</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>A153</td>
+<td>IZA</td>
+<td>Industriële Zware Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>T101</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>T152</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>E112</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>M103</td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L106</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>V103</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L107</td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>M111</td>
+<td>HR</td>
+<td>RISC / GRIMP ( Hoogteredding ) </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L111</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>V102</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L104</td>
+<td>SL</td>
+<td>Slangenwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S136</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S132</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S149</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S107</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S109</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>C102</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S110</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S112</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L110</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L109</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>L108</td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>BMC</td>
+<td>REHAB / Ondersteunings Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>K109</td>
+<td>GP/ABC</td>
+<td>Gaspakken / Adembeschermins Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>K110</td>
+<td>WTC</td>
+<td>Watertank Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>WTC</td>
+<td>Watertank Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>K108</td>
+<td>KPC</td>
+<td>Kuikenpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>DPC</td>
+<td>Dompelpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>RBC</td>
+<td>Reddings Boot Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>K106</td>
+<td>IGS-CMIC</td>
+<td>IGS -CMIC / milieucontainer </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>BM</td>
+<td>Vorkheftruck</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>A110</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td>S152</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>BMC</td>
+<td>Oefen Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Brugge</td>
+<td> </td>
+<td>BMC</td>
+<td>Oefen Container</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Centrum-Brugge - Walweinstraat 20</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Centrum-Brugge</td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Centrum-Brugge</td>
+<td>E109</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine - markt 18-12</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>A112</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>A111</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>T106</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>E111</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>L118</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>L133</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>V106</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>S137</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td>S125</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Haan-Wenduine</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel - Neerhofstraat 16b</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>A114</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>A115</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>T108</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>E101</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>S116</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>M109</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>L134</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>S105</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gistel</td>
+<td>S133</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist - Brandweerstraat 7</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>A151</td>
+<td>ZA</td>
+<td>Zware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>T109</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>E103</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>M102</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>L102</td>
+<td>(DB) ON</td>
+<td>Dienstbus Ondersteuning </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>M101</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>V101</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>C101</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>DA </td>
+<td>Dienstauto   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>L103</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td>L101</td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>KPC</td>
+<td>Kuikenpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>KPC</td>
+<td>Kuikenpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Knokke-Heist</td>
+<td> </td>
+<td>BM</td>
+<td>Scooter </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke - Klein Kasteelstraat 3</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>A123</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>A102</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>T104</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>E110</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>R101</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>M106</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>S123</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>V109</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>L131</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>S138</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>S119</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td> </td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>S122</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>L123</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>K107</td>
+<td>SLC</td>
+<td>Slangen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>K1016</td>
+<td>DPA</td>
+<td>Dompelpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td>K1015</td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Middelkerke</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende - Velodroomstraat 13</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>A127</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>A113</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>A152</td>
+<td>IZA</td>
+<td>Industriële Zware Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>T110</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>E106</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>E108</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>HV-KR</td>
+<td>Hulpverleningsvoertuig (met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>M104</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>L132</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>L122</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>V104</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>BM</td>
+<td>Laadbakvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>L135</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>DA</td>
+<td>Dienstauto   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>S139</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>S135</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>C103</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>L127</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>L124</td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>SLC</td>
+<td>Slangen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>PBC</td>
+<td>Poederblus Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td>K116</td>
+<td>GP/ABC</td>
+<td>Gaspakken / Adembeschermins Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostende</td>
+<td> </td>
+<td>BM</td>
+<td>Vorkheftuck </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp - Siemenslaan 8</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>A122</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>A121</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>T151</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>E104</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>M119</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>L116</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>V108</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>L129</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td>S134</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostkamp</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruddervoorde - Waterhoenstraat 8</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruddervoorde </td>
+<td>A120</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruddervoorde </td>
+<td>T102</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruddervoorde</td>
+<td>L128</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout - Aartrijkestraat 13</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>A101</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>A117</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>A116</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>T107</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>T153</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>E102</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>M105</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>L112</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>L114</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>S108</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>S121</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>V107</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>C104</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>S120</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td>L113</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td> </td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td> </td>
+<td>BMC</td>
+<td>Bijzondere Middelen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Torhout </td>
+<td> </td>
+<td>BM  </td>
+<td>Vorkheftruck</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>West-Vlaanderen Zone 2 ( Midwest ) </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele - Molenweg 3</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td>MW1</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td>PV1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Aarsele</td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie - Koning Albertstraat 8</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td>LW1</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>HRC</td>
+<td>RISC / GRIMP ( Hoogteredding Container ) </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>BMC</td>
+<td>Bijzondere Middelen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ardooie </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits - Grijspeerdstraat 8B</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits </td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gits </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede - Grote Noordstraat 25</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td>BE1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td>PV1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Hooglede</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster - Schoolstraat 59</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>BM</td>
+<td>Kraanwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ingelmunster </td>
+<td> </td>
+<td>EGA</td>
+<td>Elektrogeen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem - Dirk Martenslaan 15</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>AP2</td>
+<td>ZA</td>
+<td>Zware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>LW1</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>BE3</td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>SI1</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>AT1</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>PB01</td>
+<td>PBA</td>
+<td>Poederblus Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>SL01</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>SL02</td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td>SL03</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Izegem</td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde - Beverenstraat 16</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td>SI1</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td> </td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lichtervelde</td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke - Achste Linie 14</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>ZA</td>
+<td>Zware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td>EL1</td>
+<td>HW 23</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Meulebeke</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede - Kerkhofstraat 2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td> </td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td> </td>
+<td>BMA</td>
+<td>Bijzondere Materialan Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Moorslede</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem - Fonteinestraat 24</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td>EL1</td>
+<td>HW 18</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td>BE2</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td>BE1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td> </td>
+<td>SIGA</td>
+<td>Signalisatie Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Pittem </td>
+<td> </td>
+<td>BMA</td>
+<td>Bijzondere Materialan Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare - Koning Albert I-laan 4</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>AP3</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>AP4</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>IA1</td>
+<td>IZA</td>
+<td>Industriële Zware Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>LW1</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>EL1</td>
+<td>HW 36</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>PV1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>BE3</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>BE4</td>
+<td>VW </td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>SW1</td>
+<td>SL</td>
+<td>Slangenwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>DW1</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>DW1</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>HA1</td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>HA2</td>
+<td>HA</td>
+<td>Haakarmvoertuig</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>HA3</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>SC1</td>
+<td>SLC</td>
+<td>Slangen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>PC1</td>
+<td>DPC</td>
+<td>Dompelpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>DPC</td>
+<td>Dompelpomp Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td>RC1</td>
+<td>BMC</td>
+<td>Bijzondere Materialen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>BMC</td>
+<td>Bijzondere Materialen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Roeselare</td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede - Aalterstraat 32</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td>AP2</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td>SH1</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td>BE1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ruiselede </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden - Ieperstraat 100</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td>MW1</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td>BE2</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Staden</td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt (Z korps) - Felix D&#39;Hoopstraat 124</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>AP2</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>EL1</td>
+<td>HW 33</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>BE3</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>MW1</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>BE1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>PV1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>SI1</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>BE2</td>
+<td>VW</td>
+<td>Vrachtwagen</td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Tielt</td>
+<td> </td>
+<td>BMA</td>
+<td>Oefen Aanhanger IGS</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westrozebeke - Dorpsstraat 43</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westrozebeke</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Westrozebeke</td>
+<td>BE1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westrozebeke</td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westrozebeke</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene (C korps) - Beernemstraat 25</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td>TW1</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td>EL1</td>
+<td>HW 27</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td>BE2</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td> </td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wingene </td>
+<td>CW1</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele - Bruggestraat 181</td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele</td>
+<td>AP1</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele</td>
+<td>BE1</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele</td>
+<td>PV1</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele</td>
+<td>CW1</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevezele</td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>West-Vlaanderen Zone 3 ( Fluvia )</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem - Oudenaardsesteenweg 50</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>A317</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>A308</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>M317</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>T303</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>E312</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>R306</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>L318</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>L309</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>C05</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>L310</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>K302</td>
+<td>DPC</td>
+<td>Dompelpomp Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td> </td>
+<td>WTC</td>
+<td>Watertank Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>K306</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>K305</td>
+<td>WTC</td>
+<td>Watertank Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>K309</td>
+<td>DCC</td>
+<td>Decontaminatie Container</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td> </td>
+<td>BMC</td>
+<td>Bijzondere Materialen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td> </td>
+<td>COC</td>
+<td>Commando Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td> </td>
+<td>IGS-CMIC</td>
+<td>IGS -CMIC / milieucontainer </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>A310</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>S332</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>S333</td>
+<td>DA</td>
+<td>Dienstauto </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>S334</td>
+<td>DA</td>
+<td>Dienstauto  </td>
+<td> </td>
+</tr>
+<tr>
+<td>Avelgem</td>
+<td>C317</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Beveren-Leie - Liebaardstraat 258</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Beveren-Leie  </td>
+<td>A336</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Beveren-Leie  </td>
+<td>R01</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Beveren-Leie  </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Beveren-Leie  </td>
+<td>S22</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek - Vichtesteenweg 220, 8540 Deerlijk</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>A301</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>A324</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>T353</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>T311</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>E310</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>S04</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L23</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>M306</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L306</td>
+<td>VW</td>
+<td>Vrachtwagen    </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L20</td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>C12</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L41</td>
+<td>DPA</td>
+<td>Dompelpomp Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L40</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L77</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L63</td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>L47</td>
+<td>MTA</td>
+<td>Monitor Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>A306</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>S337</td>
+<td>DA</td>
+<td>Dienstauto  </td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>S330</td>
+<td>DA</td>
+<td>Dienstauto</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>S331</td>
+<td>DA</td>
+<td>Dienstauto</td>
+<td> </td>
+</tr>
+<tr>
+<td>Belgiek  </td>
+<td>C316</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem - Hondschotestraat 100A</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td>A311</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td>T310</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td>M311</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td>L14</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Gullegem   </td>
+<td>K361</td>
+<td>DPA</td>
+<td>Dompelpomp Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke - Tweebruggenstraat 2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>A318</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>A305</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>T304</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>E305</td>
+<td>HW 33</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>R312</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>M312</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>L322</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>S315</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>L27</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>M310</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>L73</td>
+<td>HRA</td>
+<td>RISC / GRIMP ( Hoogteredding Aahanger )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>K353</td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>L46</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Harelbeke   </td>
+<td>L81</td>
+<td>BMA</td>
+<td>Slijkpomp Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule - Waterven 1, bus A</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>A322</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>M313</td>
+<td>IZA</td>
+<td>Industriële Zware Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>L308</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>S17</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>L55</td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Heule  </td>
+<td>L60</td>
+<td>DPA</td>
+<td>Dompelpomp Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk - Doorniksesteenweg 214 /A</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>A309</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>A319</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>A303</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>T315</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>E303</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>E306</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>L307</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>L316</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>M02</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>L326</td>
+<td>(DB) ON</td>
+<td>Dienstbus Ondersteuning </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>S301</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>C1</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>RBC</td>
+<td>Reddings Boot Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>C3</td>
+<td>HRC</td>
+<td>RISC / GRIMP ( Hoogteredding Container )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>C4</td>
+<td>BMC</td>
+<td>Bijzondere Materialen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>BMA</td>
+<td>Slijkpomp Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>BMA</td>
+<td>Slijkpomp Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>HRA</td>
+<td>RISC / GRIMP ( Hoogteredding Aahanger )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>PBA</td>
+<td>Poederblus Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td> </td>
+<td>ABA</td>
+<td>Adembeschermings Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>A304</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>L312</td>
+<td>VW</td>
+<td>Vrachtwagen   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>S335</td>
+<td>DA</td>
+<td>Dienstauto</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>S336</td>
+<td>DA</td>
+<td>Dienstauto</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortrijk   </td>
+<td>C302</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne - Weggevoerdenplein 8</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>A312</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>T301</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>E301</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>R11</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>S27</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>S317</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>L25</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>L05</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kuurne   </td>
+<td>L41</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe - Rekkemsestraat 64</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td>A316</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td>M15</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td>S24</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td>S26</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lauwe   </td>
+<td>L84</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem - Kloosterstraat 6a</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>A314</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>M19</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>T313</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>E314</td>
+<td>HW 27</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>R309</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ledegem   </td>
+<td>S313</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede - Winkelsestraat 15</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>A328</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>A329</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>T306</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>L321</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>L317</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td> </td>
+<td>BMA</td>
+<td>Bijzondere Materialan Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>L68</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lendelede   </td>
+<td>L82</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Marke - Rekkemsestraat 54</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Marke  </td>
+<td> </td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Marke  </td>
+<td>M301</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Marke  </td>
+<td>S320</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen - Leopoldplein 12</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>A304</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>A359</td>
+<td>IZA</td>
+<td>Industriële Zware Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>E302</td>
+<td>LW 32</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>R302</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L313</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>S323</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L339</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>M309</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L328</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L119</td>
+<td>WTC</td>
+<td>Watertank Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>K320</td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L87</td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td>L49</td>
+<td>HRA</td>
+<td>RISC / GRIMP ( Hoogteredding Aahanger )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Menen   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem - Weversstraat 11</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>A323</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>A307</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>T307</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>E308</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>L301</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>S310</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>L311</td>
+<td>DB</td>
+<td>Dienstbus   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>V338</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Waregem  </td>
+<td>S329</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem - Nieuwe Markt 3</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>A315</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>T302</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>L323</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>S25</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>V326</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td>C07</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wevelgem  </td>
+<td> </td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem - Ommegangstraat 1</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>A302</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>A313</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>T305</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>E309</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>L325</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>S304</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>L303</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>L302</td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td> </td>
+<td>WTC</td>
+<td>Watertank Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>K300</td>
+<td>ABC</td>
+<td>Adembeschermings Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>K311</td>
+<td>ZZC</td>
+<td>Zand Zakken Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>L43</td>
+<td>BMC</td>
+<td>Zoutstrooi / zandzakvulmachine Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zwevegem   </td>
+<td>L31</td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>West-Vlaanderen Zone 4 ( Westhoek ) </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne - Loskaai 14</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>A404</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>T451</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>E402</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>R401</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>M403</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>S403</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>V402</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td> </td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td>S408</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td> </td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>De Panne   </td>
+<td> </td>
+<td>BMA</td>
+<td>Medische Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide - Heernisse 4</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>A450</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>A413</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>T452</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>E405</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>V407</td>
+<td>VW</td>
+<td>Vrachtwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>M414</td>
+<td>BM</td>
+<td>Dierenvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>L406</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>L458</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td>C403</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Diksmuide   </td>
+<td> </td>
+<td>DPA</td>
+<td>Dompelpomp Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe - Vrouwstraat 2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe   </td>
+<td>A425</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe   </td>
+<td>R405</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe   </td>
+<td> </td>
+<td>BMA</td>
+<td>Bijzondere Materialan Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Geluwe   </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst - Kouterstraat 46</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>A421</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>A422</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>T454</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>E414</td>
+<td>LW 24</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>R403</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>L416</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>C406</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Houthulst   </td>
+<td>K437</td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper - Minneplein 1a</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>A449</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>A423</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>A424</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>T407</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>E408</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>M408</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L448</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L423</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>V405</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L417</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L418</td>
+<td>(VW) IGS</td>
+<td>Vrachtwagen IGS / milieu ( Incident Gevaarlijke Stoffen )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>C407</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L454</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>S401</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>K435</td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td> </td>
+<td>SLA</td>
+<td>Slangen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>Pi01</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>Pi02</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>Pi03</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>Pi04</td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>K403</td>
+<td>DPA</td>
+<td>Dompelpomp Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td> </td>
+<td>BMA</td>
+<td>Oefen Aanhanger ( Jeugdbrandweer )</td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>M401</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Ieper   </td>
+<td>L444</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel - Nieuwstraat 46</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td>A446</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td> </td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td>L463</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td> </td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kemmel   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare - Oostmeetstraat 36</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td> </td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td>A416</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td>T406</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td>M407</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td>L455</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td>C416</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koekelare   </td>
+<td> </td>
+<td>SIGA</td>
+<td>Signalisatie Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde - Zeelaan 37</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde   </td>
+<td>A406</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde   </td>
+<td>A407</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde   </td>
+<td>E403</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde   </td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Koksijde   </td>
+<td>C402</td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark - Handzamestraat 84</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>A445</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>A418</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>T453</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>E416</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>L451</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td> </td>
+<td>CO</td>
+<td>Commandowagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td>C405</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Kortemark   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle - Melkweg 2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td>A448</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td>T408</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td>C409</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Langemark-Poelkapelle   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke - Lekedorpstraat 31</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td>A415</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td>A447</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td>L411</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td>V403</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td>L456</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Leke   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge - Zuidstraat 21b</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>A442</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>A443</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>T412</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>E415</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>R409</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>M415</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td>C415</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Lo-Reninge   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen - Vier Koningenstraat 28a</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td>A420</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td>L429</td>
+<td>DA </td>
+<td>Dienstauto   </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>BMA</td>
+<td>Compressor Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Mesen   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke - Dranouterstraat 5</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwkerke   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort - Gaststraat 37</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>A412</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>A411</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>T403</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>E404</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>M404</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>V404</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>L404</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>DA</td>
+<td>Dienstauto</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td>S406</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>SIGA</td>
+<td>Signalisatie Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Nieuwpoort   </td>
+<td> </td>
+<td>BMA</td>
+<td>Oliekeerschermen Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke - Schoolstraat 6</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td>A410</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td>A409</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td>T402</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td>M404</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td>S405</td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Oostduinkerke  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge - Doornstraat 45</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>A453</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>A438</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>A436</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>T456</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>E412</td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>R407</td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>M413</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>L419</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>L447</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>V406</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td>C414</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td> </td>
+<td>DPA</td>
+<td>Dompelpomp Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Poperinge   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne - Nijverheidsstraat 6</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>A401</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>A402</td>
+<td>ZA</td>
+<td>Zware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>T401</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>E401</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>M402</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>S402</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>V401</td>
+<td>SIG</td>
+<td>Signalisatievoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>L402</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>L453</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td>C417</td>
+<td>(DB) CO</td>
+<td>Dienstbus Commando </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>HA-KR</td>
+<td>Haakarmvoertuig (Met kraan)</td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>LBC</td>
+<td>Laadbak Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>COC</td>
+<td>Commando Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>BMC</td>
+<td>Bijzondere Materialen Container </td>
+<td> </td>
+</tr>
+<tr>
+<td>Veurne   </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik - Gasstraat 2</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>A430</td>
+<td>LA</td>
+<td>Lichte Autopomp </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>A428</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>T409</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>LW 30</td>
+<td>Ladderwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>E409</td>
+<td>HW 32</td>
+<td>Hoogwerker </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>M409</td>
+<td>HV</td>
+<td>Hulpverleningsvoertuig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>V408</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>L427</td>
+<td>DW</td>
+<td>Duikerswagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td>L457</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>EGA</td>
+<td>Elektrogeengroep Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Wervik  </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter - Roodkruisstraat 2c</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>(DA) CO</td>
+<td>Dienstauto Commando</td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Westouter   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke - Passendalestraat 31</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>SH</td>
+<td>Snelle Hulpwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td>L452</td>
+<td>DB</td>
+<td>Dienstbus </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zonnebeke   </td>
+<td> </td>
+<td>IGS-CMIA</td>
+<td>IGS -CMIC / milieu Aahanger </td>
+<td> </td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer - Haringestraat 26a</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td>A437</td>
+<td>HZA</td>
+<td>Halfzware Autopomp</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td>T457</td>
+<td>TW</td>
+<td>Tankwagen </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td> </td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td>L443</td>
+<td>(DB) PM</td>
+<td>Dienstbus Personeel/Materiaal </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td>L441</td>
+<td>DAT</td>
+<td>Dienstauto Terreinvaardig </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td> </td>
+<td>DMA</td>
+<td>Draagbare Motorpomp Aanhanger</td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td> </td>
+<td>LBA</td>
+<td>Laadbak Aanhanger </td>
+<td> </td>
+</tr>
+<tr>
+<td>Zuid-IJzer  </td>
+<td> </td>
+<td>RBA</td>
+<td>Reddings Boot Aanhanger </td>
+<td> </td>
+</tr>
+
+
+</tbody>
+            </table>
+        </div>
     </div>
-    <footer>
+    <!-- Footer sectie -->
+                <footer>
         &copy; <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -76,6 +6623,34 @@
             var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
             document.getElementById('currentYear').textContent = footerText;
         });
+    </script>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+           for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
+                    }
+                }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
