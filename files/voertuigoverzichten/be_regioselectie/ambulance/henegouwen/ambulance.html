@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulpdienst Voertuigen</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
+<style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -16,55 +16,732 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center;
+        }
+
+        .flex {
+            display: flex;
             align-items: center;
         }
 
-        .container {
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
             text-align: center;
-            background-color: rgba(51, 51, 51, 0.8);
-            padding: 20px;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
             border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
             background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .search-container {
+            margin-right: 0.5rem;
         }
 
-        footer {
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
             background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
+            color: white;
         }
-    </style>
+
+
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px; /* Voorkom dat de inhoud de footer overlapt */
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none; /* Geen randen meer */
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+        }
+
+        @media (max-width: 768px) {
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
+            }
+        }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Work in Progress</h1>
-        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
-        <a href="/index.html" class="nav-link">Terug naar start</a>
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-gray-400">Laatste update: 23-02-2025</div>
+            <div class="flex gap-2">
+                <!-- Dropdown voor zones -->
+                <div class="dropdown-container">
+                    <select onchange="if (this.value) window.location.href=this.value;">
+                        <option value="">Selecteer een zone</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/antwerpen/ambulance.html">Zone Antwerpen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/brussel/ambulance.html">Zone Brussel</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/limburg/ambulance.html">Zone Limburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/oost-vlaanderen/ambulance.html">Zone Oost Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/vlaams-brabant/ambulance.html">Zone Vlaams Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/west-vlaanderen/ambulance.html">Zone West Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/henegouwen/ambulance.html">Zone Henegouwen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/luik/ambulance.html">Zone Luik</option>  
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/luxemburg/ambulance.html">Zone Luxemburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/waals-brabant/ambulance.html">Zone Waals Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/namen/ambulance.html">Zone Namen</option>
+        </select>
+                </div>
+
+
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
+
+                <!-- Andere knoppen -->
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="dataTable">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Postnaam" class="icon"> Postnaam
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Roepnaam/Roepnummer" class="icon"> Roepnaam/Roepnummer
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Gemeente" class="icon"> Gemeente
+                            </span>
+                        </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Gewest" class="icon"> Gewest
+                            </span>
+                           </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td>Ambulance </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>BH CHAR CSA Poste Gilly</td>
+<td>AMB SAPG 2 (Team: AHCHAR12A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH CHAR R-MED</td>
+<td>AMB R-MED 5 (Team: AHCHAR05A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH CHAR R-MED</td>
+<td>AMB R-MED 6 (Team: AHCHAR06A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH FRAM Croix Rouge</td>
+<td>CR FRAMERIES 1 (Team: AHFRAM01A)</td>
+<td>Frameries</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH LOUV AS Grande</td>
+<td>AMB Strepy 6 Team: AHLOUV06A</td>
+<td>Strepy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH LOUV AS Grande</td>
+<td>AMB STREPY 3 (Team: AHLOUV03A)</td>
+<td>Strepy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH MONS [Nimy] Croix Rouge</td>
+<td>AMB GHLIN (Team: AHMONS07A)</td>
+<td>Nimy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH MONS [Nimy] Croix Rouge</td>
+<td>CR NIMY 2 (Team: AHMONS08A)</td>
+<td>Nimy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BH SGHI Croix Rouge</td>
+<td>AMB SAINT-GHISLAIN (Team: AHSGHI01A)</td>
+<td>Saint-Ghislain</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS ATH_ Wallonie Picarde</td>
+<td>AMB ATH 1 (Team: AHATH_01A)</td>
+<td>Ath</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS ATH_ Wallonie Picarde</td>
+<td>AMB ATH 2 (Team: AHATH_02A)</td>
+<td>Ath</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BEAU Hainaut Est</td>
+<td>AMB BEAUMONT 1 (Team: AHBEAU01A)</td>
+<td>Beaumont</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BEAU Hainaut Est</td>
+<td>AMB BEAUMONT 2 (Team: AHBEAU02A)</td>
+<td>Beaumont</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BERN Wallonie Picarde</td>
+<td>AMB BLATON 1 (Team: AHBERN01A)</td>
+<td>Blatom</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BERN Wallonie Picarde</td>
+<td>AMB BLATON 2 (Team: AHBERN02A)</td>
+<td>Blatom</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BINC Hainaut Centre</td>
+<td>AMB BINCHE (Team: AHBINC01A)</td>
+<td>Binche</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS BRAI Hainaut Centre</td>
+<td>AMB BRAINE-LE-COMTE (Team: AHBRAI01A)</td>
+<td>Braine-Le-Comte</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Jumet] Hainaut Est</td>
+<td>AMB JUMET 4 (Team: AHCHAR04A)</td>
+<td>Jumet</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Jumet] Hainaut Est</td>
+<td>ZS JUMET 1 (Team: AHCHAR13A)</td>
+<td>Jumet</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHIM Hainaut Est</td>
+<td>AMB CHIMAY 1 (Team: AHCHIM01A)</td>
+<td>Chimay</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHIM Hainaut Est</td>
+<td>AMB CHIMAY 2 (Team: AHCHIM02A)</td>
+<td>Chimay</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS COMI Wallonie Picarde</td>
+<td>AMB COMINES (Team: AHCOMI01A)</td>
+<td>Comines</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS DOUR Hainaut Centre</td>
+<td>AMB DOUR (Team: AHDOUR01A)</td>
+<td>Dour</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS ENGH Hainaut Centre</td>
+<td>AMB ENGHIEN (Team: AHENGH01A)</td>
+<td>Enghien</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS ESTA Wallonie Picarde</td>
+<td>ZS EVERGNIES 1 (Team: AHESTA01A)</td>
+<td>Evergnies</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS ESTA Wallonie Picarde</td>
+<td>ZS EVERGNIES 2 (Team: AHESTA02A)</td>
+<td>Evergnies</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS LEUZ Wallonie Picarde</td>
+<td>AMB LEUZE (Team: AHLEUZ01A)</td>
+<td>Leuze</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS MOUS Wallonie Picarde</td>
+<td>AMB MOUSCRON 3 (Team: AHMOUS03A)</td>
+<td>Mouscron</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS QUIE Hainaut Centre</td>
+<td>AMB QUIEVRAIN (Team: AHQUIE01A)</td>
+<td>Quievrain</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS SOIG Hainaut Centre</td>
+<td>AMB SOIGNIES (Team: AHSOIG01A)</td>
+<td>Soignies</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS THUI Hainaut Est</td>
+<td>AMB THUIN 1 (Team: AHTHUI01A)</td>
+<td>Thuin</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS THUI Hainaut Est</td>
+<td>AMB THUIN 2 (Team: AHTHUI02A)</td>
+<td>Thuin</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS TOUR Wallonie Picarde</td>
+<td>AMB TOURNAI 1 (Team: AHTOUR01A)</td>
+<td>Tournai</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS TOUR Wallonie Picarde</td>
+<td>AMB TOURNAI 2 (Team: AHTOUR02A)</td>
+<td>Tournai</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS TOUR Wallonie Picarde</td>
+<td>AMB TOURNAI 3 (Team: AHTOUR03A)</td>
+<td>Tournai</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR LOVE IMTR</td>
+<td>SAPG 1 (Team: AHGERP02A)</td>
+<td>La Louviere</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HUMANI SC</td>
+<td>Team: PHCHAR04A</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HUMANI SC</td>
+<td>Team: AHCHAR15A</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>LA ZONE DE SECOURS HAINAUT-CENTRE</td>
+<td>Team: AHSGHI02A</td>
+<td>Saint-Ghislain</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>SPRL CJP AMBULANCES DU CENTRE</td>
+<td>Team: AHLOUV05A</td>
+<td>La Louviere</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Marcinelle] Hainaut Est</td>
+<td>AMB CHARLEROI 1 (Team: AHCHAR01A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Marcinelle] Hainaut Est</td>
+<td>AMB CHARLEROI 2 (Team: AHCHAR02A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Marcinelle] Hainaut Est</td>
+<td>AMB CHARLEROI 3 (Team: AHCHAR03A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHAR [Marcinelle] Hainaut Est</td>
+<td>AMB COVID Charleroi (Team: AHCHAR11A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHIE Hainaut Centre</td>
+<td>AMB CHIÈVRES 1 (Team: AHLENS01A)</td>
+<td>Chievres</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS CHIE Hainaut Centre</td>
+<td>AMB CHIÈVRES Bariatrique 2 (Team: AHLENS02A)</td>
+<td>Chievres</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS LOUV Hainaut Centre</td>
+<td>AMB LA LOUVIERE 1 (Team: AHLOUV01A</td>
+<td>La Louviere</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS LOUV Hainaut Centre</td>
+<td>AMB LA LOUVIERE 2 (Team: AHLOUV02A)</td>
+<td>La Louviere</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS MONS [Cuesmes] Hainaut Centre</td>
+<td>AMB COVID Mons 2 (Team: AHMONS05A)</td>
+<td>ZS MONS 2 (Team: AHMONS02A)</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FH PDS MONS [Cuesmes] Hainaut Centre</td>
+<td>AMB MONS 1 (Team: AHMONS01A)</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>FH PDS MONS [Cuesmes] Hainaut Centre</td>
+<td>ZS MONS 2 (Team: AHMONS02A)</td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>HH UR MONI CHU Andre Vesale</td>
+<td>AMB VÉSALE 7 (Team: AHCHAR07A)</td>
+<td>Vesale</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR MONI CHU Andre Vesale</td>
+<td>Team: MHMILI101</td>
+<td>Vesale</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR MONI CHU Andre Vesale</td>
+<td>Team: MHMILI102</td>
+<td>Vesale</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR MONI CHU Andre Vesale</td>
+<td>Team: MHMILI103</td>
+<td>Vesale</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PIT</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Postnaam</td>
+<td>Roepnaam/Nummer</td>
+<td>Gemeente</td>
+<td>Gewest </td>
+</tr>
+<tr>
+<td>BH CHAR ISPPC Mambourg</td>
+<td>PIT CHARLEROI 1 (Team: PHCHAR04A)</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HUMANI SC</td>
+<td>PIT CHIMAY (Team: PHCHIM01A)</td>
+<td>Chimay</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR CHAR St Joseph Gilly</td>
+<td>PIT GILLY 1 (Team: PHCHAR01A)</td>
+<td>Gilly</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HH UR MONS CHU Ambroise Paré | PIT</td>
+<td>PIT MONS 1 (Team: PHMONS01A)</td>
+<td>Mons</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MUG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Postnaam</td>
+<td>Roepnaam/Nummer</td>
+<td>Gemeente</td>
+<td>Gewest </td>
+</tr>
+<tr>
+<td>C.H.U. ET PSYCHIATRIE DE MONS - BORINAGE</td>
+<td>601000</td>
+<td>Mons</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H.R. DE MONS - HAINAUT</td>
+<td>601000</td>
+<td>Mons</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CLINIQUE NOTRE-DAME DE GRACE</td>
+<td>602000</td>
+<td>Gosselies</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER UNIVERSITAIRE TIVOLI</td>
+<td>603000</td>
+<td>La Louviere</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRES HOSPITALIERS DE JOLIMONT</td>
+<td>603000</td>
+<td>Haine-Saint-Paul</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H. EPICURA HORNU - BAUDOUR</td>
+<td>604000</td>
+<td>Hornu</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H.R. DE MONS - HAINAUT</td>
+<td>604000</td>
+<td>Boussu</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H. DE WALLONIE PICARDE - Chwapi</td>
+<td>605000</td>
+<td>Tournai</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER DE MOUSCRON</td>
+<td>606000</td>
+<td>Mouscron</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER EPICURA</td>
+<td>607000</td>
+<td>Ath</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>GRAND HOPITAL DE CHARLEROI</td>
+<td>608000</td>
+<td>Charleroi</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER DE LA HAUTE SENNE</td>
+<td>609000</td>
+<td>Soignies</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE DE SANTE DES FAGNES</td>
+<td>610000</td>
+<td>Chimay</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C. H. UNIVERSITAIRE ANDRE VESALE</td>
+<td>611000</td>
+<td>Montigny-Le-Tilleul</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRES HOSPITALIERS DE JOLIMONT</td>
+<td>612000</td>
+<td>Lobbs</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H.U. DE CHARLEROI</td>
+<td>613000</td>
+<td>Lodelinsart</td>
+<td>Wallonië</td>
+</tr>
+
+</tbody>
+            </table>
+        </div>
     </div>
-    <footer>
+    <!-- Footer sectie -->
+                <footer>
         &copy; <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -76,6 +753,34 @@
             var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
             document.getElementById('currentYear').textContent = footerText;
         });
+    </script>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+           for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
+                    }
+                }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
