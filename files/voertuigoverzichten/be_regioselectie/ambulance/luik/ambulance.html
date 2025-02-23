@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hulpdienst Voertuigen</title>
     <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <style>
+<style>
         body {
             background: url('/files/images/background.png') no-repeat center center fixed;
             background-size: cover;
@@ -16,55 +16,684 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            justify-content: center;
+        }
+
+        .flex {
+            display: flex;
             align-items: center;
         }
 
-        .container {
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-gray-400 {
+            color: #ccc;
+        }
+
+        .bg-gray-600 {
+            background-color: #333;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-center {
             text-align: center;
-            background-color: rgba(51, 51, 51, 0.8);
-            padding: 20px;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        img.icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+
+        .dropdown-container {
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-container select {
+            font-size: 1em;
+            padding: 0.3em 0.8em;
+            border: none;
             border-radius: 10px;
+            background-color: #333;
+            color: #fff;
         }
 
         .nav-link {
             background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            color: #fff;
+            padding: 0.3em 0.8em;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
+            margin-right: 0.5rem;
         }
 
         .nav-link:hover {
             background-color: #4a5568;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        .search-container {
+            margin-right: 0.5rem;
         }
 
-        footer {
+        .search-container input[type=text] {
+            padding: 0.3em 0.8em;
+            border-radius: 10px;
+            border: none;
             background-color: #333;
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
+            color: white;
         }
-    </style>
+
+
+.header {
+    grid-row: 1; /* Bovenste rij voor de header */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px; /* Voorkom dat de inhoud de footer overlapt */
+}
+
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.table-container table {
+    width: 100%;
+    min-width: 1200px; /* Zorg ervoor dat de tabel niet te smal wordt */
+}
+
+.table-container {
+    height: 1200px; /* Stel de hoogte in voor de tabelcontainer */
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: none; /* Geen randen meer */
+        }
+
+        th {
+            background-color: #444; /* Kleur van de bovenste rij */
+            color: white;
+            position: sticky; /* Blijft bovenaan tijdens scrollen */
+            top: 0;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Alternating row colors for better readability */
+        }
+
+        @media (max-width: 768px) {
+            .overflow-x-auto {
+                max-height: none; /* Geen hoogtebeperking op kleinere schermen */
+            }
+
+            .bg-gray-600 {
+                margin-bottom: 0.5rem;
+            }
+        }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Work in Progress</h1>
-        <img src="/files/images/under-construction.jpg" alt="Work in Progress">
-        <a href="/index.html" class="nav-link">Terug naar start</a>
+    <div class="container mx-auto p-4">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-gray-400">Laatste update: 23-02-2025</div>
+            <div class="flex gap-2">
+                <!-- Dropdown voor zones -->
+                <div class="dropdown-container">
+                    <select onchange="if (this.value) window.location.href=this.value;">
+                        <option value="">Selecteer een zone</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/antwerpen/ambulance.html">Zone Antwerpen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/brussel/ambulance.html">Zone Brussel</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/limburg/ambulance.html">Zone Limburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/oost-vlaanderen/ambulance.html">Zone Oost Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/vlaams-brabant/ambulance.html">Zone Vlaams Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/west-vlaanderen/ambulance.html">Zone West Vlaanderen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/henegouwen/ambulance.html">Zone Henegouwen</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/luik/ambulance.html">Zone Luik</option>  
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/luxemburg/ambulance.html">Zone Luxemburg</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/waals-brabant/ambulance.html">Zone Waals Brabant</option>
+            <option value="/files/voertuigoverzichten/be_regioselectie/ambulance/namen/ambulance.html">Zone Namen</option>
+        </select>
+                </div>
+
+
+                <!-- Zoekbalk -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Zoek op adres..." oninput="searchTable()">
+                </div>
+
+                <!-- Andere knoppen -->
+                <a href="/index.html" class="nav-link">Startpagina</a>
+                <a href="/files/contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table id="dataTable">
+                <thead>
+                    <tr class="bg-gray-800">
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/adres.png" alt="Postnaam" class="icon"> Postnaam
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/roepnummer.png" alt="Roepnaam/Roepnummer" class="icon"> Roepnaam/Roepnummer
+                            </span>
+                        </th>
+                        <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Gemeente" class="icon"> Gemeente
+                            </span>
+                        </th>
+                           <th class="px-4 py-2">
+                            <span class="flex items-center justify-center">
+                                <img src="/files/images/bijzonderheden.png" alt="Gewest" class="icon"> Gewest
+                            </span>
+                           </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td>Ambulance </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>BG AMAY Croix Rouge</td>
+<td>CR.AMPSIN (Team: AGAMAY01A)</td>
+<td>Ampsin</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG BLEG Croix Rouge</td>
+<td>CR BELGIQUE BARCHON (Team: AGBLEG01A)</td>
+<td>Barchon</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Croix Rouge</td>
+<td>CR LIEGE 3 (Team: AGLIEG10A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Croix Rouge</td>
+<td>CR LIEGE 4 (Team: AGLIEG04A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Croix Rouge</td>
+<td>CR LIEGE 5 (Team: AGLIEG05A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG OUPE Croix Rouge</td>
+<td>AMB COVID Oupeye (Team: AGOUPE02A)</td>
+<td>Oupeye</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG OUPE Croix Rouge</td>
+<td>CR.OUPEYE (Team: AGOUPE01A)</td>
+<td>Oupeye</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG SERA Croix Rouge</td>
+<td>CR.OUGREE (Team: AGSERA01A)</td>
+<td>Ougree</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS ANS_ Liège IILE</td>
+<td>ZS ANS (Team: AGANS_01A)</td>
+<td>Ans</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS EUPE DG</td>
+<td>ZS.EUPEN 1 (Team: AGEUPE01A)</td>
+<td>Eupen</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS EUPE DG</td>
+<td>ZS.EUPEN 2 (Team: AGEUPE02A)</td>
+<td>Eupen</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HANN Hesbaye</td>
+<td>ZS.HANNUT 1 (Team: AGHANN01A)</td>
+<td>Hannut</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HANN Hesbaye</td>
+<td>ZS.HANNUT 2 (Team: AGHANN02A)</td>
+<td>Hannut</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HANN Hesbaye</td>
+<td>ZS.HANNUT 3 (Team: AGHANN03A)</td>
+<td>Hannut</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS PEPI Vesdre Hoëgne Plateau</td>
+<td>ZS.PEPINST (Team: AGPEPI01A)</td>
+<td>Pepinst</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS SPA_ Vesdre Hoëgne Plateau</td>
+<td>AMB SPA (Team: AGSPA_01A)</td>
+<td>Spa</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS SVIT DG</td>
+<td>ZS.STVITH 1 (Team: AGSVIT01A)</td>
+<td>Sankt-Vith</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS VERV Vesdre Hoëgne Plateau</td>
+<td>ZS.VERV 1 (Team: AGVERV01A)</td>
+<td>Verviers</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS VERV Vesdre Hoëgne Plateau</td>
+<td>ZS.VERV 2 (Team: AGVERV02A)</td>
+<td>Verviers</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS VERV Vesdre Hoëgne Plateau</td>
+<td>ZS.VERV 3 (Team: AGVERV03A)</td>
+<td>Verviers</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS WARE Hesbaye</td>
+<td>ZS.WAREM 1 (Team: AGWARE01A)</td>
+<td>Waremme</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS WARE Hesbaye</td>
+<td>ZS.WAREM 2 (Team: AGWARE02A)</td>
+<td>Waremme</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS WELK Vesdre Hoëgne Plateau</td>
+<td>ZS WELKENR 2 (Team: AGWELK02A)</td>
+<td>Welkenraedt</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS WELK Vesdre Hoëgne Plateau</td>
+<td>ZS.WELKENR (Team: AGWELK01A)</td>
+<td>Welkenraedt</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>LUIK EN OMGEVING - REGIONALE BRANDWEER</td>
+<td>Team: AGGRAC01A</td>
+<td>Grace-Hollogne</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG AWAN PARAM</td>
+<td>PR.PARAMEDICAL TEAM1 (Team: AGAWAN01A)</td>
+<td>Awans</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG AWAN PARAM</td>
+<td>PR.PARAMEDICAL TEAM2 (Team: AGAWAN02A)</td>
+<td>Awans</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG BULL Croix Rouge</td>
+<td>CR.BUTGEN 1 (Team: AGBULL01A)</td>
+<td>Butgen</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG BULL Croix Rouge</td>
+<td>CR.BUTGEN 2 (Team: AGBULL02A)</td>
+<td>Butgen</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Courtois</td>
+<td>PR.COURT 1 (Team: AGLIEG01A)</td>
+<td>Court</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Courtois</td>
+<td>PR.COURT 2 (Team: AGLIEG02A)</td>
+<td>Court</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>BG LIEG Courtois</td>
+<td>PR.COURT 3 (Team: AGLIEG03A)</td>
+<td>Court</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>Croix-Rouge de Belgique / Belgische Rode Kruis</td>
+<td>AMB Barchon 2 (Team: AGBLEG02A)</td>
+<td>Barchon</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS AYWA Warche Amblève Lienne</td>
+<td>ZS.AYWAIL 1 (Team: AGAYWA01A)</td>
+<td>Aywail</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS AYWA Warche Amblève Lienne</td>
+<td>ZS.AYWAIL 2 (Team: AGAYWA02A)</td>
+<td>Aywail</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS AYWA Warche Amblève Lienne</td>
+<td>ZS.AYWAIL 3 (Team: AGAYWA03A)</td>
+<td>Aywail</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HAMO HEMECO</td>
+<td>ZS.HAMOIR (Team: AGHAMO01A)</td>
+<td>Hamoir</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HAMO HEMECO</td>
+<td>ZS.HAMOIR 2 (Team: AGHAMO02A)</td>
+<td>Hamoir</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HUY_ HEMECO</td>
+<td>ZS HUY 1 (Team: AGHUY_01A)</td>
+<td>Huy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HUY_ HEMECO</td>
+<td>ZS HUY 2 (Team: AGHUY_02A)</td>
+<td>Huy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS HUY_ HEMECO</td>
+<td>ZS HUY 3 (Team: AGHUY_03A)</td>
+<td>Huy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS LIEG [Caserne] Liège IILE</td>
+<td>ZS LIEGE 6 (Team: AGLIEG06A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS LIEG [Caserne] Liège IILE</td>
+<td>ZS LIEGE 7 (Team: AGLIEG07A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS STAV Warche Amblève Lienne</td>
+<td>ZS.STAVEL1 (Team: AGSTAV01A)</td>
+<td>Stavelot</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>FG PDS STAV Warche Amblève Lienne</td>
+<td>ZS.STAVEL2 (Team: AGSTAV02A)</td>
+<td>Stavelot</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR HERS Andre Renard</td>
+<td>AMB OCC HERSTAL (Team: AGTIHARE1)</td>
+<td>Herstal</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR LIEG CHR Citadelle</td>
+<td>AMB LIEGE CHR (Team: AGLIEG09A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR LIEG CHR Citadelle</td>
+<td>AMB OCC CHR DE LA CITADELLE (Team: AGTIHCHR1)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR LIEG CHU Notre Dame Bruyeres</td>
+<td>Team: AGTIHCHU1</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>LA ZONE DE SECOURS 6</td>
+<td>ZS.KELMIS 1 (Team: AGCALA01B)</td>
+<td>Kelmis</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>LA ZONE DE SECOURS 7</td>
+<td>Team: AGCALA02A</td>
+<td>Kelmis</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>La Zone de Secours Vesdre - Hoegne &amp; Plateau</td>
+<td>ZS.BATTICE 1 (Team: AGHERV01A)</td>
+<td>Battice</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>La Zone de Secours Vesdre - Hoegne &amp; Plateau</td>
+<td>Team: AGHERV02A</td>
+<td>Battice</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>PIT</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Postnaam</td>
+<td>Roepnaam/Nummer</td>
+<td>Gemeente</td>
+<td>Gewest </td>
+</tr>
+<tr>
+<td>HG UR HERS Andre Renard</td>
+<td>PIT HERSTAL 1 (Team: PGHERS01A)</td>
+<td>Herstal </td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR LIEG CHR Citadelle | PIT</td>
+<td>PIT LIEGE 1 (Team: PGLIEG01A)</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR MALM Reine Astrid</td>
+<td>PIT MALMEDY 1 (Team: PGMALM01A)</td>
+<td>Malmedy</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>HG UR VERV CHR Tourelle | PIT</td>
+<td>PIT VERVIERS 1 (Team: PGVERV01A)</td>
+<td>Verviers</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MUG</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Postnaam</td>
+<td>Roepnaam/Nummer</td>
+<td>Gemeente</td>
+<td>Gewest </td>
+</tr>
+<tr>
+<td>C.H. REGIONAL DE LA CITADELLE</td>
+<td>801000</td>
+<td>Liege</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER UNIVERSITAIRE DE LIEGE</td>
+<td>802000</td>
+<td>Chenee</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H. BOIS DE L&#39;ABBAYE</td>
+<td>803000</td>
+<td>Seraing</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER CHRETIEN</td>
+<td>803000</td>
+<td>Montegnee</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>C.H. DU BOIS DE L&#39;ABBAYE</td>
+<td>804000</td>
+<td>Warmeme</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER CHRETIEN</td>
+<td>804000</td>
+<td>Warmeme</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER REGIONAL DE HUY</td>
+<td>805000</td>
+<td>Hut </td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>ST.-NIKOLAUS HOSPITAL</td>
+<td>806000</td>
+<td>Eupen</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>KLINIK ST.-JOSEF</td>
+<td>807000</td>
+<td>Sankt-Vith</td>
+<td>Wallonië</td>
+</tr>
+<tr>
+<td>CENTRE HOSPITALIER REGIONAL DE VERVIERS</td>
+<td>808000</td>
+<td>Verviers</td>
+<td>Wallonië</td>
+</tr>
+
+</tbody>
+            </table>
+        </div>
     </div>
-    <footer>
+    <!-- Footer sectie -->
+                <footer>
         &copy; <span id="currentYear"></span> HulpdienstVoertuigenNL-BE. Alle rechten voorbehouden.
     </footer>
 
@@ -76,6 +705,34 @@
             var footerText = startYear + (currentYear > startYear ? " - " + currentYear : "");
             document.getElementById('currentYear').textContent = footerText;
         });
+    </script>
+
+    <!-- JavaScript voor zoekfunctionaliteit -->
+    <script>
+        function searchTable() {
+            var input = document.getElementById('searchInput').value.toUpperCase();
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+            
+           for (var i = 1; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+                var rowContainsInput = false;
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cellValue = cells[j].textContent || cells[j].innerText;
+                    if (cellValue.toUpperCase().indexOf(input) > -1) {
+                        rowContainsInput = true;
+                        break;
+                    }
+                }
+
+                if (rowContainsInput) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
